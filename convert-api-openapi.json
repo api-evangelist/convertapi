@@ -1,0 +1,2237 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "v1",
+        "title": "Convert API",
+        "description": "The ConvertAPI provides online API for creating PDF and Images from various sources like Word document, web pages or raw HTML codes. In just few minutes you can integrate it into your application and use it easily. Return to APIs list.",
+        "termsOfService": ""
+    },
+    "servers": [
+        "httpsdo.convertapi.com\/"
+    ],
+    "paths": {
+        "\/Email2Image": {
+            "post": {
+                "summary": "Email to Image",
+                "description": "The API for converting E-Mail files to PDF files and Images. These file formats eml, mbx, msg, oft can be converted to png, jpg, tif.",
+                "operationId": "Email2image",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "ImageResolutionH",
+                        "in": "query",
+                        "description": "Image horizontal resolution (DPI)."
+                    },
+                    {
+                        "name": "ImageResolutionV",
+                        "in": "query",
+                        "description": "Image vertical resolution (DPI)."
+                    },
+                    {
+                        "name": "JpgQuality",
+                        "in": "query",
+                        "description": "Jpg image quality."
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/Email2Pdf": {
+            "post": {
+                "summary": "Email to PDF",
+                "description": "The API for converting E-Mail files to PDF files and Images. These file formats eml, mbx, msg, oft can be converted to pdf, pdfa, png, jpg, tif.",
+                "operationId": "Email2pdf",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "DocumentAuthor",
+                        "in": "query",
+                        "description": "Set the author of the generated Pdf file. If value is not set a source document author is used instead."
+                    },
+                    {
+                        "name": "DocumentKeywords",
+                        "in": "query",
+                        "description": "Set the keywords of the generated Pdf file. If value is not set a source document keywords is used instead."
+                    },
+                    {
+                        "name": "DocumentSubject",
+                        "in": "query",
+                        "description": "Set the subject of the generated Pdf file. If value is not set a source document subject is used instead."
+                    },
+                    {
+                        "name": "DocumentTitle",
+                        "in": "query",
+                        "description": "Set the title of the generated Pdf file. If value is not set a source document title is used instead."
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/Excel2Image": {
+            "post": {
+                "summary": "Excel to Image",
+                "description": "The API for converting Excel documents to PDF files and Images. These file formats csv, xls, xlsb, xlsx, xlt, xltx can be converted to png, jpg, tif.",
+                "operationId": "Excel2image",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "AlternativeParser",
+                        "in": "query",
+                        "description": "If some objects are missing in converted Pdf files from original source files this option can be enabled to improve conversion. The option process files much slower and should be disabled by default."
+                    },
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "ImageResolutionH",
+                        "in": "query",
+                        "description": "Image horizontal resolution (DPI)."
+                    },
+                    {
+                        "name": "ImageResolutionV",
+                        "in": "query",
+                        "description": "Image vertical resolution (DPI)."
+                    },
+                    {
+                        "name": "JpgQuality",
+                        "in": "query",
+                        "description": "Jpg image quality."
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    },
+                    {
+                        "name": "WorksheetActive",
+                        "in": "query",
+                        "description": "Set to convert active worksheet. If value is not set all worksheet will be converted."
+                    },
+                    {
+                        "name": "WorksheetIndex",
+                        "in": "query",
+                        "description": "Set worksheet index(number) to convert. If value is not set all worksheet will be converted."
+                    },
+                    {
+                        "name": "WorksheetName",
+                        "in": "query",
+                        "description": "Set worksheet name to convert. If value is not set all worksheet will be converted."
+                    }
+                ]
+            }
+        },
+        "\/Excel2Pdf": {
+            "post": {
+                "summary": "Excel to PDF",
+                "description": "The API for converting Excel documents to PDF files and Images. These file formats csv, xls, xlsb, xlsx, xlt, xltx can be converted to pdf, pdfa, png, jpg, tif.",
+                "operationId": "Excel2pdf",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "AlternativeParser",
+                        "in": "query",
+                        "description": "If some objects are missing in converted Pdf files from original source files this option can be enabled to improve conversion. The option process files much slower and should be disabled by default."
+                    },
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "DocumentAuthor",
+                        "in": "query",
+                        "description": "Set the author of the generated Pdf file. If value is not set a source document author is used instead."
+                    },
+                    {
+                        "name": "DocumentKeywords",
+                        "in": "query",
+                        "description": "Set the keywords of the generated Pdf file. If value is not set a source document keywords is used instead."
+                    },
+                    {
+                        "name": "DocumentSubject",
+                        "in": "query",
+                        "description": "Set the subject of the generated Pdf file. If value is not set a source document subject is used instead."
+                    },
+                    {
+                        "name": "DocumentTitle",
+                        "in": "query",
+                        "description": "Set the title of the generated Pdf file. If value is not set a source document title is used instead."
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    },
+                    {
+                        "name": "WorksheetActive",
+                        "in": "query",
+                        "description": "Set to convert active worksheet. If value is not set all worksheet will be converted."
+                    },
+                    {
+                        "name": "WorksheetIndex",
+                        "in": "query",
+                        "description": "Set worksheet index(number) to convert. If value is not set all worksheet will be converted."
+                    },
+                    {
+                        "name": "WorksheetName",
+                        "in": "query",
+                        "description": "Set worksheet name to convert. If value is not set all worksheet will be converted."
+                    }
+                ]
+            }
+        },
+        "\/Image2Image": {
+            "post": {
+                "summary": "Image to Image",
+                "description": "The API for converting Image files to PDF files and Images. These file formats avs, bmp, dcx, dib, dpx, fax, fits, fpx, gif, ico, iptc, jbig, jp2, jpeg, jpg, mdi, miff, mng, mpc, mtv, otb, pbm, pcd, pcds, pct, pcx, pgm, pict, png, pnm, ppm, psd, p7, ras, rgba, sun, tga, tiff, tif, vicar, vid, viff, wmf, xbm, xpm, xwd can be converted to png, jpg, tif.",
+                "operationId": "Image2image",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "ImageResolutionH",
+                        "in": "query",
+                        "description": "Image horizontal resolution (DPI)."
+                    },
+                    {
+                        "name": "ImageResolutionV",
+                        "in": "query",
+                        "description": "Image vertical resolution (DPI)."
+                    },
+                    {
+                        "name": "JpgQuality",
+                        "in": "query",
+                        "description": "Jpg image quality."
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/Image2Pdf": {
+            "post": {
+                "summary": "Image to PDF",
+                "description": "The API for converting Image files to PDF files and Images. These file formats avs, bmp, dcx, dib, dpx, fax, fits, fpx, gif, ico, iptc, jbig, jp2, jpeg, jpg, mdi, miff, mng, mpc, mtv, otb, pbm, pcd, pcds, pct, pcx, pgm, pict, png, pnm, ppm, psd, p7, ras, rgba, sun, tga, tiff, tif, vicar, vid, viff, wmf, xbm, xpm, xwd can be converted to pdf, pdfa, png, jpg, tif.",
+                "operationId": "Image2pdf",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "DocumentAuthor",
+                        "in": "query",
+                        "description": "Set the author of the generated Pdf file. If value is not set a source document author is used instead."
+                    },
+                    {
+                        "name": "DocumentKeywords",
+                        "in": "query",
+                        "description": "Set the keywords of the generated Pdf file. If value is not set a source document keywords is used instead."
+                    },
+                    {
+                        "name": "DocumentSubject",
+                        "in": "query",
+                        "description": "Set the subject of the generated Pdf file. If value is not set a source document subject is used instead."
+                    },
+                    {
+                        "name": "DocumentTitle",
+                        "in": "query",
+                        "description": "Set the title of the generated Pdf file. If value is not set a source document title is used instead."
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "Ocr",
+                        "in": "query",
+                        "description": "Apply optical character recognition (OCR) and convert scanned text images into editable and searchable PDF."
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/Journal2Image": {
+            "post": {
+                "summary": "Journal to Image",
+                "description": "The API for converting Windows Journal Viewer documents to PDF files and Images. These file formats jnt can be converted to png, jpg, tif.",
+                "operationId": "Journal2image",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "ImageResolutionH",
+                        "in": "query",
+                        "description": "Image horizontal resolution (DPI)."
+                    },
+                    {
+                        "name": "ImageResolutionV",
+                        "in": "query",
+                        "description": "Image vertical resolution (DPI)."
+                    },
+                    {
+                        "name": "JpgQuality",
+                        "in": "query",
+                        "description": "Jpg image quality."
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/Journal2Pdf": {
+            "post": {
+                "summary": "Journal to PDF",
+                "description": "The API for converting Windows Journal Viewer documents to PDF files and Images. These file formats jnt can be converted to pdf, pdfa, png, jpg, tif.",
+                "operationId": "Journal2pdf",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "DocumentAuthor",
+                        "in": "query",
+                        "description": "Set the author of the generated Pdf file. If value is not set a source document author is used instead."
+                    },
+                    {
+                        "name": "DocumentKeywords",
+                        "in": "query",
+                        "description": "Set the keywords of the generated Pdf file. If value is not set a source document keywords is used instead."
+                    },
+                    {
+                        "name": "DocumentSubject",
+                        "in": "query",
+                        "description": "Set the subject of the generated Pdf file. If value is not set a source document subject is used instead."
+                    },
+                    {
+                        "name": "DocumentTitle",
+                        "in": "query",
+                        "description": "Set the title of the generated Pdf file. If value is not set a source document title is used instead."
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/Lotus2Image": {
+            "post": {
+                "summary": "Lotus to Image",
+                "description": "The API for converting Lotus Smart Suite documents to PDF files and Images. These file formats 123, 12m, wk1, wk2, wk3, lwp, mwp, sam can be converted to png, jpg, tif.",
+                "operationId": "Lotus2image",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "ImageResolutionH",
+                        "in": "query",
+                        "description": "Image horizontal resolution (DPI)."
+                    },
+                    {
+                        "name": "ImageResolutionV",
+                        "in": "query",
+                        "description": "Image vertical resolution (DPI)."
+                    },
+                    {
+                        "name": "JpgQuality",
+                        "in": "query",
+                        "description": "Jpg image quality."
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/Lotus2Pdf": {
+            "post": {
+                "summary": "Lotus to PDF",
+                "description": "The API for converting Lotus Smart Suite documents to PDF files and Images. These file formats 123, 12m, wk1, wk2, wk3, lwp, mwp, sam can be converted to pdf, pdfa, png, jpg, tif.",
+                "operationId": "Lotus2pdf",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "DocumentAuthor",
+                        "in": "query",
+                        "description": "Set the author of the generated Pdf file. If value is not set a source document author is used instead."
+                    },
+                    {
+                        "name": "DocumentKeywords",
+                        "in": "query",
+                        "description": "Set the keywords of the generated Pdf file. If value is not set a source document keywords is used instead."
+                    },
+                    {
+                        "name": "DocumentSubject",
+                        "in": "query",
+                        "description": "Set the subject of the generated Pdf file. If value is not set a source document subject is used instead."
+                    },
+                    {
+                        "name": "DocumentTitle",
+                        "in": "query",
+                        "description": "Set the title of the generated Pdf file. If value is not set a source document title is used instead."
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/OpenOffice2Image": {
+            "post": {
+                "summary": "Open Office to Image",
+                "description": "The API for converting OpenOffice documents to PDF files and Images. These file formats mml, odc, odf, odg, odi, odm, odp, ods, odt, otg, oth, otp, ots, pxl, sgl, smf, srw, stc, sti, stw, sxc, sxg, sxi, sxm, sxw, vor, wv2 can be converted to png, jpg, tif.",
+                "operationId": "Openoffice2image",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "AlternativeParser",
+                        "in": "query",
+                        "description": "If some objects are missing in converted Pdf files from original source files this option can be enabled to improve conversion. The option process files much slower and should be disabled by default."
+                    },
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "ImageResolutionH",
+                        "in": "query",
+                        "description": "Image horizontal resolution (DPI)."
+                    },
+                    {
+                        "name": "ImageResolutionV",
+                        "in": "query",
+                        "description": "Image vertical resolution (DPI)."
+                    },
+                    {
+                        "name": "JpgQuality",
+                        "in": "query",
+                        "description": "Jpg image quality."
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/OpenOffice2Pdf": {
+            "post": {
+                "summary": "Open Office to PDF",
+                "description": "The API for converting OpenOffice documents to PDF files and Images. These file formats mml, odc, odf, odg, odi, odm, odp, ods, odt, otg, oth, otp, ots, pxl, sgl, smf, srw, stc, sti, stw, sxc, sxg, sxi, sxm, sxw, vor, wv2 can be converted to pdf, pdfa, png, jpg, tif.",
+                "operationId": "Openoffice2pdf",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "AlternativeParser",
+                        "in": "query",
+                        "description": "If some objects are missing in converted Pdf files from original source files this option can be enabled to improve conversion. The option process files much slower and should be disabled by default."
+                    },
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "DocumentAuthor",
+                        "in": "query",
+                        "description": "Set the author of the generated Pdf file. If value is not set a source document author is used instead."
+                    },
+                    {
+                        "name": "DocumentKeywords",
+                        "in": "query",
+                        "description": "Set the keywords of the generated Pdf file. If value is not set a source document keywords is used instead."
+                    },
+                    {
+                        "name": "DocumentSubject",
+                        "in": "query",
+                        "description": "Set the subject of the generated Pdf file. If value is not set a source document subject is used instead."
+                    },
+                    {
+                        "name": "DocumentTitle",
+                        "in": "query",
+                        "description": "Set the title of the generated Pdf file. If value is not set a source document title is used instead."
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/Pdf2Image": {
+            "post": {
+                "summary": "PDF to Image",
+                "description": "The API for converting PDF documents to Image. These file formats pdf can be converted to png, jpg, tif.",
+                "operationId": "Pdf2image",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "ImageResolutionH",
+                        "in": "query",
+                        "description": "Image horizontal resolution (DPI)."
+                    },
+                    {
+                        "name": "ImageResolutionV",
+                        "in": "query",
+                        "description": "Image vertical resolution (DPI)."
+                    },
+                    {
+                        "name": "JpgQuality",
+                        "in": "query",
+                        "description": "Jpg image quality."
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/Pdf2Pdf": {
+            "post": {
+                "summary": "PDF to PDF",
+                "description": "The API for converting PDF documents to Image. These file formats pdf can be converted to pdf, pdfa, png, jpg, tif.",
+                "operationId": "Pdf2pdf",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "DocumentAuthor",
+                        "in": "query",
+                        "description": "Set the author of the generated Pdf file. If value is not set a source document author is used instead."
+                    },
+                    {
+                        "name": "DocumentKeywords",
+                        "in": "query",
+                        "description": "Set the keywords of the generated Pdf file. If value is not set a source document keywords is used instead."
+                    },
+                    {
+                        "name": "DocumentSubject",
+                        "in": "query",
+                        "description": "Set the subject of the generated Pdf file. If value is not set a source document subject is used instead."
+                    },
+                    {
+                        "name": "DocumentTitle",
+                        "in": "query",
+                        "description": "Set the title of the generated Pdf file. If value is not set a source document title is used instead."
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/Pdf2PowerPoint": {
+            "post": {
+                "summary": "PDF to Power Point",
+                "description": "The API for converting PDF documents to PowerPoint presentation files. These file formats pdf, pdfa can be converted to pptx.",
+                "operationId": "Pdf2powerpoint",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/PostScript2Image": {
+            "post": {
+                "summary": "Post Script to Image",
+                "description": "The API for converting PostScript files to PDF files and Images. These file formats ps, eps, prn can be converted to png, jpg, tif.",
+                "operationId": "Postscript2image",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "ImageResolutionH",
+                        "in": "query",
+                        "description": "Image horizontal resolution (DPI)."
+                    },
+                    {
+                        "name": "ImageResolutionV",
+                        "in": "query",
+                        "description": "Image vertical resolution (DPI)."
+                    },
+                    {
+                        "name": "JpgQuality",
+                        "in": "query",
+                        "description": "Jpg image quality."
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/PostScript2Pdf": {
+            "post": {
+                "summary": "Post Script to PDF",
+                "description": "The API for converting PostScript files to PDF files and Images. These file formats ps, eps, prn can be converted to pdf, pdfa, png, jpg, tif.",
+                "operationId": "Postscript2pdf",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "DocumentAuthor",
+                        "in": "query",
+                        "description": "Set the author of the generated Pdf file. If value is not set a source document author is used instead."
+                    },
+                    {
+                        "name": "DocumentKeywords",
+                        "in": "query",
+                        "description": "Set the keywords of the generated Pdf file. If value is not set a source document keywords is used instead."
+                    },
+                    {
+                        "name": "DocumentSubject",
+                        "in": "query",
+                        "description": "Set the subject of the generated Pdf file. If value is not set a source document subject is used instead."
+                    },
+                    {
+                        "name": "DocumentTitle",
+                        "in": "query",
+                        "description": "Set the title of the generated Pdf file. If value is not set a source document title is used instead."
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/PowerPoint2Image": {
+            "post": {
+                "summary": "Power Point to Image",
+                "description": "The API for converting PowerPoint documents to PDF files and Images. These file formats pot, potx, pps, ppsx, ppt, pptx can be converted to png, jpg, tif.",
+                "operationId": "Powerpoint2image",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "AlternativeParser",
+                        "in": "query",
+                        "description": "If some objects are missing in converted Pdf files from original source files this option can be enabled to improve conversion. The option process files much slower and should be disabled by default."
+                    },
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "ImageResolutionH",
+                        "in": "query",
+                        "description": "Image horizontal resolution (DPI)."
+                    },
+                    {
+                        "name": "ImageResolutionV",
+                        "in": "query",
+                        "description": "Image vertical resolution (DPI)."
+                    },
+                    {
+                        "name": "JpgQuality",
+                        "in": "query",
+                        "description": "Jpg image quality."
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/PowerPoint2Pdf": {
+            "post": {
+                "summary": "Power Point to PDF",
+                "description": "The API for converting PowerPoint documents to PDF files and Images. These file formats pot, potx, pps, ppsx, ppt, pptx can be converted to pdf, pdfa, png, jpg, tif.",
+                "operationId": "Powerpoint2pdf",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "AlternativeParser",
+                        "in": "query",
+                        "description": "If some objects are missing in converted Pdf files from original source files this option can be enabled to improve conversion. The option process files much slower and should be disabled by default."
+                    },
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "DocumentAuthor",
+                        "in": "query",
+                        "description": "Set the author of the generated Pdf file. If value is not set a source document author is used instead."
+                    },
+                    {
+                        "name": "DocumentKeywords",
+                        "in": "query",
+                        "description": "Set the keywords of the generated Pdf file. If value is not set a source document keywords is used instead."
+                    },
+                    {
+                        "name": "DocumentSubject",
+                        "in": "query",
+                        "description": "Set the subject of the generated Pdf file. If value is not set a source document subject is used instead."
+                    },
+                    {
+                        "name": "DocumentTitle",
+                        "in": "query",
+                        "description": "Set the title of the generated Pdf file. If value is not set a source document title is used instead."
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/Project2Image": {
+            "post": {
+                "summary": "Project to Image",
+                "description": "The API for converting Project documents to PDF files and Images. These file formats mpp, mpt can be converted to png, jpg, tif.",
+                "operationId": "Project2image",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "ImageResolutionH",
+                        "in": "query",
+                        "description": "Image horizontal resolution (DPI)."
+                    },
+                    {
+                        "name": "ImageResolutionV",
+                        "in": "query",
+                        "description": "Image vertical resolution (DPI)."
+                    },
+                    {
+                        "name": "JpgQuality",
+                        "in": "query",
+                        "description": "Jpg image quality."
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/Project2Pdf": {
+            "post": {
+                "summary": "Project to PDF",
+                "description": "The API for converting Project documents to PDF files and Images. These file formats mpp, mpt can be converted to pdf, pdfa, png, jpg, tif.",
+                "operationId": "Project2pdf",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "DocumentAuthor",
+                        "in": "query",
+                        "description": "Set the author of the generated Pdf file. If value is not set a source document author is used instead."
+                    },
+                    {
+                        "name": "DocumentKeywords",
+                        "in": "query",
+                        "description": "Set the keywords of the generated Pdf file. If value is not set a source document keywords is used instead."
+                    },
+                    {
+                        "name": "DocumentSubject",
+                        "in": "query",
+                        "description": "Set the subject of the generated Pdf file. If value is not set a source document subject is used instead."
+                    },
+                    {
+                        "name": "DocumentTitle",
+                        "in": "query",
+                        "description": "Set the title of the generated Pdf file. If value is not set a source document title is used instead."
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/Publisher2Image": {
+            "post": {
+                "summary": "Publisher to Image",
+                "description": "The API for converting Publisher documents to PDF files and Images. These file formats pub can be converted to png, jpg, tif.",
+                "operationId": "Publisher2image",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "AlternativeParser",
+                        "in": "query",
+                        "description": "If some objects are missing in converted Pdf files from original source files this option can be enabled to improve conversion. The option process files much slower and should be disabled by default."
+                    },
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "ImageResolutionH",
+                        "in": "query",
+                        "description": "Image horizontal resolution (DPI)."
+                    },
+                    {
+                        "name": "ImageResolutionV",
+                        "in": "query",
+                        "description": "Image vertical resolution (DPI)."
+                    },
+                    {
+                        "name": "JpgQuality",
+                        "in": "query",
+                        "description": "Jpg image quality."
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/Publisher2Pdf": {
+            "post": {
+                "summary": "Publisher to PDF",
+                "description": "The API for converting Publisher documents to PDF files and Images. These file formats pub can be converted to pdf, pdfa, png, jpg, tif.",
+                "operationId": "Publisher2pdf",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "AlternativeParser",
+                        "in": "query",
+                        "description": "If some objects are missing in converted Pdf files from original source files this option can be enabled to improve conversion. The option process files much slower and should be disabled by default."
+                    },
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "DocumentAuthor",
+                        "in": "query",
+                        "description": "Set the author of the generated Pdf file. If value is not set a source document author is used instead."
+                    },
+                    {
+                        "name": "DocumentKeywords",
+                        "in": "query",
+                        "description": "Set the keywords of the generated Pdf file. If value is not set a source document keywords is used instead."
+                    },
+                    {
+                        "name": "DocumentSubject",
+                        "in": "query",
+                        "description": "Set the subject of the generated Pdf file. If value is not set a source document subject is used instead."
+                    },
+                    {
+                        "name": "DocumentTitle",
+                        "in": "query",
+                        "description": "Set the title of the generated Pdf file. If value is not set a source document title is used instead."
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/RichText2Image": {
+            "post": {
+                "summary": "Rich Text to Image",
+                "description": "The API for converting Rich Text documents to PDF files and Images. These file formats rtf can be converted to png, jpg, tif.",
+                "operationId": "Richtext2image",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "ImageResolutionH",
+                        "in": "query",
+                        "description": "Image horizontal resolution (DPI)."
+                    },
+                    {
+                        "name": "ImageResolutionV",
+                        "in": "query",
+                        "description": "Image vertical resolution (DPI)."
+                    },
+                    {
+                        "name": "JpgQuality",
+                        "in": "query",
+                        "description": "Jpg image quality."
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/RichText2Pdf": {
+            "post": {
+                "summary": "Rich Text to PDF",
+                "description": "The API for converting Rich Text documents to PDF files and Images. These file formats rtf can be converted to pdf, pdfa, png, jpg, tif.",
+                "operationId": "Richtext2pdf",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "DocumentAuthor",
+                        "in": "query",
+                        "description": "Set the author of the generated Pdf file. If value is not set a source document author is used instead."
+                    },
+                    {
+                        "name": "DocumentKeywords",
+                        "in": "query",
+                        "description": "Set the keywords of the generated Pdf file. If value is not set a source document keywords is used instead."
+                    },
+                    {
+                        "name": "DocumentSubject",
+                        "in": "query",
+                        "description": "Set the subject of the generated Pdf file. If value is not set a source document subject is used instead."
+                    },
+                    {
+                        "name": "DocumentTitle",
+                        "in": "query",
+                        "description": "Set the title of the generated Pdf file. If value is not set a source document title is used instead."
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/SnapShot2Image": {
+            "post": {
+                "summary": "Snap Shot to Image",
+                "description": "The API for converting Access Report Snapshots documents to PDF files and Images. These file formats snp can be converted to png, jpg, tif.",
+                "operationId": "Snapshot2image",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "ImageResolutionH",
+                        "in": "query",
+                        "description": "Image horizontal resolution (DPI)."
+                    },
+                    {
+                        "name": "ImageResolutionV",
+                        "in": "query",
+                        "description": "Image vertical resolution (DPI)."
+                    },
+                    {
+                        "name": "JpgQuality",
+                        "in": "query",
+                        "description": "Jpg image quality."
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/SnapShot2Pdf": {
+            "post": {
+                "summary": "Snap Shot to PDF",
+                "description": "The API for converting Access Report Snapshots documents to PDF files and Images. These file formats snp can be converted to pdf, pdfa, png, jpg, tif.",
+                "operationId": "Snapshot2pdf",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "DocumentAuthor",
+                        "in": "query",
+                        "description": "Set the author of the generated Pdf file. If value is not set a source document author is used instead."
+                    },
+                    {
+                        "name": "DocumentKeywords",
+                        "in": "query",
+                        "description": "Set the keywords of the generated Pdf file. If value is not set a source document keywords is used instead."
+                    },
+                    {
+                        "name": "DocumentSubject",
+                        "in": "query",
+                        "description": "Set the subject of the generated Pdf file. If value is not set a source document subject is used instead."
+                    },
+                    {
+                        "name": "DocumentTitle",
+                        "in": "query",
+                        "description": "Set the title of the generated Pdf file. If value is not set a source document title is used instead."
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/Text2Image": {
+            "post": {
+                "summary": "Text to Image",
+                "description": "The API for converting Textual files to PDF files and Images. These file formats txt, log can be converted to png, jpg, tif.",
+                "operationId": "Text2image",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "ImageResolutionH",
+                        "in": "query",
+                        "description": "Image horizontal resolution (DPI)."
+                    },
+                    {
+                        "name": "ImageResolutionV",
+                        "in": "query",
+                        "description": "Image vertical resolution (DPI)."
+                    },
+                    {
+                        "name": "JpgQuality",
+                        "in": "query",
+                        "description": "Jpg image quality."
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/Text2Pdf": {
+            "post": {
+                "summary": "Text to PDF",
+                "description": "The API for converting Textual files to PDF files and Images. These file formats txt, log can be converted to pdf, pdfa, png, jpg, tif.",
+                "operationId": "Text2pdf",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "DocumentAuthor",
+                        "in": "query",
+                        "description": "Set the author of the generated Pdf file. If value is not set a source document author is used instead."
+                    },
+                    {
+                        "name": "DocumentKeywords",
+                        "in": "query",
+                        "description": "Set the keywords of the generated Pdf file. If value is not set a source document keywords is used instead."
+                    },
+                    {
+                        "name": "DocumentSubject",
+                        "in": "query",
+                        "description": "Set the subject of the generated Pdf file. If value is not set a source document subject is used instead."
+                    },
+                    {
+                        "name": "DocumentTitle",
+                        "in": "query",
+                        "description": "Set the title of the generated Pdf file. If value is not set a source document title is used instead."
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/Visio2Image": {
+            "post": {
+                "summary": "Visio to Image",
+                "description": "The API for converting Visio documents to PDF files and Images. These file formats vsd, vst, vsdx, vstx can be converted to png, jpg, tif.",
+                "operationId": "Visio2image",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "AlternativeParser",
+                        "in": "query",
+                        "description": "If some objects are missing in converted Pdf files from original source files this option can be enabled to improve conversion. The option process files much slower and should be disabled by default."
+                    },
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "ImageResolutionH",
+                        "in": "query",
+                        "description": "Image horizontal resolution (DPI)."
+                    },
+                    {
+                        "name": "ImageResolutionV",
+                        "in": "query",
+                        "description": "Image vertical resolution (DPI)."
+                    },
+                    {
+                        "name": "JpgQuality",
+                        "in": "query",
+                        "description": "Jpg image quality."
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/Visio2Pdf": {
+            "post": {
+                "summary": "Visio to PDF",
+                "description": "The API for converting Visio documents to PDF files and Images. These file formats vsd, vst, vsdx, vstx can be converted to pdf, pdfa, png, jpg, tif.",
+                "operationId": "Visio2pdf",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "AlternativeParser",
+                        "in": "query",
+                        "description": "If some objects are missing in converted Pdf files from original source files this option can be enabled to improve conversion. The option process files much slower and should be disabled by default."
+                    },
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "DocumentAuthor",
+                        "in": "query",
+                        "description": "Set the author of the generated Pdf file. If value is not set a source document author is used instead."
+                    },
+                    {
+                        "name": "DocumentKeywords",
+                        "in": "query",
+                        "description": "Set the keywords of the generated Pdf file. If value is not set a source document keywords is used instead."
+                    },
+                    {
+                        "name": "DocumentSubject",
+                        "in": "query",
+                        "description": "Set the subject of the generated Pdf file. If value is not set a source document subject is used instead."
+                    },
+                    {
+                        "name": "DocumentTitle",
+                        "in": "query",
+                        "description": "Set the title of the generated Pdf file. If value is not set a source document title is used instead."
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/Web2Image": {
+            "post": {
+                "summary": "Web to Image",
+                "description": "The API for converting Web Pages to Images.",
+                "operationId": "Web2image",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "AcceptLanguage",
+                        "in": "query",
+                        "description": "Set accept language header."
+                    },
+                    {
+                        "name": "AlternativeParser",
+                        "in": "query",
+                        "description": "If some objects are missing in converted Pdf files from original source files this option can be enabled to improve conversion. The option process files much slower and should be disabled by default."
+                    },
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "AuthPassword",
+                        "in": "query",
+                        "description": "HTTP Authentication password, used if conversion web page is protected with HTTP authentication."
+                    },
+                    {
+                        "name": "AuthUsername",
+                        "in": "query",
+                        "description": "HTTP authentication username, used if conversion web page is protected with HTTP authentication."
+                    },
+                    {
+                        "name": "ConversionDelay",
+                        "in": "query",
+                        "description": "Delay in seconds before page load and PDF creation. Sometimes usefull to let web page to load in full."
+                    },
+                    {
+                        "name": "CUrl",
+                        "in": "query",
+                        "description": "URI of a web page to convert. Must start with http:\/\/ or https:\/\/. Several URI of web pages merged with %20 (space) symbol can be passed to create one PDF. For example if http:\/\/www.google.com%20http:\/\/www.nytimes.com URI will be passed the two web pages will be merged into one PDF. If URI has special characters like ? or &amp;amp; they must be encoded. Also a HTML code can be submitted for conversion using this parameter."
+                    },
+                    {
+                        "name": "PageHeight",
+                        "in": "query",
+                        "description": "Set screen height. Default is calculated from page content."
+                    },
+                    {
+                        "name": "PageWidth",
+                        "in": "query",
+                        "description": "Set screen width."
+                    },
+                    {
+                        "name": "Plugins",
+                        "in": "query",
+                        "description": "Enable plugins such as flash."
+                    },
+                    {
+                        "name": "Scripts",
+                        "in": "query",
+                        "description": "Allow web pages to run javascript."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    },
+                    {
+                        "name": "UserAgent",
+                        "in": "query",
+                        "description": "Set custom user agent."
+                    }
+                ]
+            }
+        },
+        "\/Web2Pdf": {
+            "post": {
+                "summary": "Web to PDF",
+                "description": "The API for converting Web Pages to PDF files.",
+                "operationId": "Web2pdf",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "AcceptLanguage",
+                        "in": "query",
+                        "description": "Set accept language header."
+                    },
+                    {
+                        "name": "AlternativeParser",
+                        "in": "query",
+                        "description": "If some objects are missing in converted Pdf files from original source files this option can be enabled to improve conversion. The option process files much slower and should be disabled by default."
+                    },
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "AuthPassword",
+                        "in": "query",
+                        "description": "HTTP Authentication password, used if conversion web page is protected with HTTP authentication."
+                    },
+                    {
+                        "name": "AuthUsername",
+                        "in": "query",
+                        "description": "HTTP authentication username, used if conversion web page is protected with HTTP authentication."
+                    },
+                    {
+                        "name": "Background",
+                        "in": "query",
+                        "description": "Print web page background."
+                    },
+                    {
+                        "name": "ConversionDelay",
+                        "in": "query",
+                        "description": "Delay in seconds before page load and PDF creation. Sometimes usefull to let web page to load in full."
+                    },
+                    {
+                        "name": "CoverUrl",
+                        "in": "query",
+                        "description": "Use html document as cover. It will be inserted before the toc with no headers and footers."
+                    },
+                    {
+                        "name": "CUrl",
+                        "in": "query",
+                        "description": "URI of a web page to convert. Must start with http:\/\/ or https:\/\/. Several URI of web pages merged with %20 (space) symbol can be passed to create one PDF. For example if http:\/\/www.google.com%20http:\/\/www.nytimes.com URI will be passed the two web pages will be merged into one PDF. If URI has special characters like ? or &amp;amp; they must be encoded. Also a HTML code can be submitted for conversion using this parameter."
+                    },
+                    {
+                        "name": "DocumentTitle",
+                        "in": "query",
+                        "description": "Set the title of the generated Pdf file. If value is not set a source document title is used instead."
+                    },
+                    {
+                        "name": "FooterLine",
+                        "in": "query",
+                        "description": "Display line above the footer."
+                    },
+                    {
+                        "name": "FooterSpacing",
+                        "in": "query",
+                        "description": "Spacing between footer and content. Header spacing can be specified in millimeters (mm), inches (in) or centimeters (cm). If no units are specified, millimeters are assumed."
+                    },
+                    {
+                        "name": "FooterTextCenter",
+                        "in": "query",
+                        "description": "Center aligned footer text."
+                    },
+                    {
+                        "name": "FooterTextFont",
+                        "in": "query",
+                        "description": "Set footer font name."
+                    },
+                    {
+                        "name": "FooterTextLeft",
+                        "in": "query",
+                        "description": "Left aligned footer text."
+                    },
+                    {
+                        "name": "FooterTextRight",
+                        "in": "query",
+                        "description": "Right aligned footer text."
+                    },
+                    {
+                        "name": "FooterTextSize",
+                        "in": "query",
+                        "description": "Set footer font size."
+                    },
+                    {
+                        "name": "FooterUrl",
+                        "in": "query",
+                        "description": "Adds a html footer. This can be either a URI or HTML code."
+                    },
+                    {
+                        "name": "HeaderLine",
+                        "in": "query",
+                        "description": "Display line below the header."
+                    },
+                    {
+                        "name": "HeaderSpacing",
+                        "in": "query",
+                        "description": "Spacing between header and content. Header spacing can be specified in millimeters (mm), inches (in) or centimeters (cm). If no units are specified, millimeters are assumed."
+                    },
+                    {
+                        "name": "HeaderTextCenter",
+                        "in": "query",
+                        "description": "Center aligned header text."
+                    },
+                    {
+                        "name": "HeaderTextFont",
+                        "in": "query",
+                        "description": "Set header font name."
+                    },
+                    {
+                        "name": "HeaderTextLeft",
+                        "in": "query",
+                        "description": "Left aligned header text."
+                    },
+                    {
+                        "name": "HeaderTextRight",
+                        "in": "query",
+                        "description": "Right aligned header text."
+                    },
+                    {
+                        "name": "HeaderTextSize",
+                        "in": "query",
+                        "description": "Set header font size."
+                    },
+                    {
+                        "name": "HeaderUrl",
+                        "in": "query",
+                        "description": "Adds a html header. This can be either a URI or HTML code. This and others header and footer properties support these smart tags. [page] - Replaced by the number of the pages currently being printed. [frompage] - Replaced by the number of the first page to be printed. [topage] - Replaced by the number of the last page to be printed. [webpage] - Replaced by the URL of the page being printed. [section] - Replaced by the name of the current section. [subsection] - Replaced by the name of the curren"
+                    },
+                    {
+                        "name": "InfoStamp",
+                        "in": "query",
+                        "description": "Show date stamp and conversion url in header."
+                    },
+                    {
+                        "name": "LowQuality",
+                        "in": "query",
+                        "description": "Generates lower quality PDF, makes smaller file size."
+                    },
+                    {
+                        "name": "MarginBottom",
+                        "in": "query",
+                        "description": "Set the page bottom margin. Margins can be specified in millimeters (mm), inches (in) or centimeters (cm). If no units are specified, millimeters are assumed."
+                    },
+                    {
+                        "name": "MarginLeft",
+                        "in": "query",
+                        "description": "Set the page left margin. Margins can be specified in millimeters (mm), inches (in) or centimeters (cm). If no units are specified, millimeters are assumed."
+                    },
+                    {
+                        "name": "MarginRight",
+                        "in": "query",
+                        "description": "Set the page right margin. Margins can be specified in millimeters (mm), inches (in) or centimeters (cm). If no units are specified, millimeters are assumed."
+                    },
+                    {
+                        "name": "MarginTop",
+                        "in": "query",
+                        "description": "Set the page top margin. Margins can be specified in millimeters (mm), inches (in) or centimeters (cm). If no units are specified, millimeters are assumed."
+                    },
+                    {
+                        "name": "Outline",
+                        "in": "query",
+                        "description": "Show outline in PDF file."
+                    },
+                    {
+                        "name": "PageHeight",
+                        "in": "query",
+                        "description": "Set screen height. Default is calculated from page content."
+                    },
+                    {
+                        "name": "PageNo",
+                        "in": "query",
+                        "description": "Show page number in footer."
+                    },
+                    {
+                        "name": "PageOrientation",
+                        "in": "query",
+                        "description": "PDF page orientation: portrait, landscape"
+                    },
+                    {
+                        "name": "PageSize",
+                        "in": "query",
+                        "description": "PDF page paper sizes.: a0, a1, a2, a3, a4, a5, a6, a7, a8, a9, b0, b1, b2, b3, b4, b5, letter, legal, ledger"
+                    },
+                    {
+                        "name": "PageWidth",
+                        "in": "query",
+                        "description": "Set screen width."
+                    },
+                    {
+                        "name": "Plugins",
+                        "in": "query",
+                        "description": "Enable plugins such as flash."
+                    },
+                    {
+                        "name": "PrintType",
+                        "in": "query",
+                        "description": "Use print media-type(print css sheet) instead of screen."
+                    },
+                    {
+                        "name": "Scripts",
+                        "in": "query",
+                        "description": "Allow web pages to run javascript."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    },
+                    {
+                        "name": "UserAgent",
+                        "in": "query",
+                        "description": "Set custom user agent."
+                    }
+                ]
+            }
+        },
+        "\/Word2Image": {
+            "post": {
+                "summary": "Word to Image",
+                "description": "The API for converting Word documents to PDF files and Images. These file formats doc, docx, dot, dotx, wpd, wps, wri can be converted to png, jpg, tif.",
+                "operationId": "Word2image",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "AlternativeParser",
+                        "in": "query",
+                        "description": "If some objects are missing in converted Pdf files from original source files this option can be enabled to improve conversion. The option process files much slower and should be disabled by default."
+                    },
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "ImageResolutionH",
+                        "in": "query",
+                        "description": "Image horizontal resolution (DPI)."
+                    },
+                    {
+                        "name": "ImageResolutionV",
+                        "in": "query",
+                        "description": "Image vertical resolution (DPI)."
+                    },
+                    {
+                        "name": "JpgQuality",
+                        "in": "query",
+                        "description": "Jpg image quality."
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/Word2Pdf": {
+            "post": {
+                "summary": "Word to PDF",
+                "description": "The API for converting Word documents to PDF files and Images. These file formats doc, docx, dot, dotx, wpd, wps, wri can be converted to pdf, pdfa, png, jpg, tif.",
+                "operationId": "Word2pdf",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "AlternativeParser",
+                        "in": "query",
+                        "description": "If some objects are missing in converted Pdf files from original source files this option can be enabled to improve conversion. The option process files much slower and should be disabled by default."
+                    },
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "DocumentAuthor",
+                        "in": "query",
+                        "description": "Set the author of the generated Pdf file. If value is not set a source document author is used instead."
+                    },
+                    {
+                        "name": "DocumentKeywords",
+                        "in": "query",
+                        "description": "Set the keywords of the generated Pdf file. If value is not set a source document keywords is used instead."
+                    },
+                    {
+                        "name": "DocumentSubject",
+                        "in": "query",
+                        "description": "Set the subject of the generated Pdf file. If value is not set a source document subject is used instead."
+                    },
+                    {
+                        "name": "DocumentTitle",
+                        "in": "query",
+                        "description": "Set the title of the generated Pdf file. If value is not set a source document title is used instead."
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/Xps2Image": {
+            "post": {
+                "summary": "Xps to Image",
+                "description": "The API for converting Open XML Paper Specification documents to PDF files. These file formats xps can be converted to png, jpg, tif.",
+                "operationId": "Xps2image",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "ImageResolutionH",
+                        "in": "query",
+                        "description": "Image horizontal resolution (DPI)."
+                    },
+                    {
+                        "name": "ImageResolutionV",
+                        "in": "query",
+                        "description": "Image vertical resolution (DPI)."
+                    },
+                    {
+                        "name": "JpgQuality",
+                        "in": "query",
+                        "description": "Jpg image quality."
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        },
+        "\/Xps2Pdf": {
+            "post": {
+                "summary": "Xps to PDF",
+                "description": "The API for converting Open XML Paper Specification documents to PDF files. These file formats xps can be converted to pdf, pdfa, png, jpg, tif.",
+                "operationId": "Xps2pdf",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "ApiKey",
+                        "in": "query",
+                        "description": "API Key should be passed if you purchased membership with credits. Please login to your control panel to find out your API Key http:\/\/www.convertapi.com\/a"
+                    },
+                    {
+                        "name": "DocumentAuthor",
+                        "in": "query",
+                        "description": "Set the author of the generated Pdf file. If value is not set a source document author is used instead."
+                    },
+                    {
+                        "name": "DocumentKeywords",
+                        "in": "query",
+                        "description": "Set the keywords of the generated Pdf file. If value is not set a source document keywords is used instead."
+                    },
+                    {
+                        "name": "DocumentSubject",
+                        "in": "query",
+                        "description": "Set the subject of the generated Pdf file. If value is not set a source document subject is used instead."
+                    },
+                    {
+                        "name": "DocumentTitle",
+                        "in": "query",
+                        "description": "Set the title of the generated Pdf file. If value is not set a source document title is used instead."
+                    },
+                    {
+                        "name": "File",
+                        "in": "query",
+                        "description": "Supported source file formats: eml, mbx, msg, oft"
+                    },
+                    {
+                        "name": "OutputFormat",
+                        "in": "query",
+                        "description": "Supported output file formats png, jpg, tif. If output format is set to png or jpg a image file will be created for every converted document page and returned as zip file."
+                    },
+                    {
+                        "name": "StoreFile",
+                        "in": "query",
+                        "description": "Store file on server and return url to file instead of file stream response. File will be available for 24 hours."
+                    },
+                    {
+                        "name": "Timeout",
+                        "in": "query",
+                        "description": "Conversion timeout in seconds."
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": []
+    }
+}
