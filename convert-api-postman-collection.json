@@ -1,5 +1,5 @@
 {
-    "id": "66be30aeff6d5a978150d694e22c38a1",
+    "id": "e7db22a85f55a405534d55a427617a83",
     "name": "Convert API",
     "description": null,
     "auth": null,
@@ -10,7 +10,7 @@
     "folders": [],
     "requests": [
         {
-            "id": "53ba2b6531d905f1881ca50c0f2388bd",
+            "id": "e9ed14e367a2608492c7246bf150cba6",
             "name": "Email to Image",
             "url": "httpsdo.convertapi.com\/\/Email2Image",
             "description": "The API for converting E-Mail files to PDF files and Images. These file formats eml, mbx, msg, oft can be converted to png, jpg, tif.",
@@ -86,11 +86,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "29202606054fbb160ca7801bc72da9bc",
+            "id": "f3f065c81f56a7704b83797a6328f361",
             "name": "Email to PDF",
             "url": "httpsdo.convertapi.com\/\/Email2Pdf",
             "description": "The API for converting E-Mail files to PDF files and Images. These file formats eml, mbx, msg, oft can be converted to pdf, pdfa, png, jpg, tif.",
@@ -173,11 +173,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "60f5d12956b900795d2d4d4d8fd65810",
+            "id": "19fa560c21bc4f2f8f11887078a486af",
             "name": "Excel to Image",
             "url": "httpsdo.convertapi.com\/\/Excel2Image",
             "description": "The API for converting Excel documents to PDF files and Images. These file formats csv, xls, xlsb, xlsx, xlt, xltx can be converted to png, jpg, tif.",
@@ -281,11 +281,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "31d65d71e40d4393fa154282b37bd4be",
+            "id": "223fd5cc4c241e0636bdceffc5e79f59",
             "name": "Excel to PDF",
             "url": "httpsdo.convertapi.com\/\/Excel2Pdf",
             "description": "The API for converting Excel documents to PDF files and Images. These file formats csv, xls, xlsb, xlsx, xlt, xltx can be converted to pdf, pdfa, png, jpg, tif.",
@@ -396,11 +396,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "6cb2096981e634e6c12f1b1677211bde",
+            "id": "1ebcaf43e5bb56eb37bc6f17af1d748c",
             "name": "Image to Image",
             "url": "httpsdo.convertapi.com\/\/Image2Image",
             "description": "The API for converting Image files to PDF files and Images. These file formats avs, bmp, dcx, dib, dpx, fax, fits, fpx, gif, ico, iptc, jbig, jp2, jpeg, jpg, mdi, miff, mng, mpc, mtv, otb, pbm, pcd, pcds, pct, pcx, pgm, pict, png, pnm, ppm, psd, p7, ras, rgba, sun, tga, tiff, tif, vicar, vid, viff, wmf, xbm, xpm, xwd can be converted to png, jpg, tif.",
@@ -476,11 +476,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "319b54962beeb7ee2fad3dc71e53ed78",
+            "id": "18932c72bc90c31fe60b2d7261fd08e4",
             "name": "Image to PDF",
             "url": "httpsdo.convertapi.com\/\/Image2Pdf",
             "description": "The API for converting Image files to PDF files and Images. These file formats avs, bmp, dcx, dib, dpx, fax, fits, fpx, gif, ico, iptc, jbig, jp2, jpeg, jpg, mdi, miff, mng, mpc, mtv, otb, pbm, pcd, pcds, pct, pcx, pgm, pict, png, pnm, ppm, psd, p7, ras, rgba, sun, tga, tiff, tif, vicar, vid, viff, wmf, xbm, xpm, xwd can be converted to pdf, pdfa, png, jpg, tif.",
@@ -570,11 +570,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "14aaa3a4ddfb9249936fd23433dd9beb",
+            "id": "9f890eddf37bdce4bbaf62414bd84004",
             "name": "Journal to Image",
             "url": "httpsdo.convertapi.com\/\/Journal2Image",
             "description": "The API for converting Windows Journal Viewer documents to PDF files and Images. These file formats jnt can be converted to png, jpg, tif.",
@@ -650,11 +650,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "5ec261f7a3591410e83870d2ed31768b",
+            "id": "fbe8be2923d8eef8cf8f792b61f2abf0",
             "name": "Journal to PDF",
             "url": "httpsdo.convertapi.com\/\/Journal2Pdf",
             "description": "The API for converting Windows Journal Viewer documents to PDF files and Images. These file formats jnt can be converted to pdf, pdfa, png, jpg, tif.",
@@ -737,11 +737,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "0ce3de783c12c36af159830a5e4f22e6",
+            "id": "7f6128de44f74b229f6700f9fcf183fa",
             "name": "Lotus to Image",
             "url": "httpsdo.convertapi.com\/\/Lotus2Image",
             "description": "The API for converting Lotus Smart Suite documents to PDF files and Images. These file formats 123, 12m, wk1, wk2, wk3, lwp, mwp, sam can be converted to png, jpg, tif.",
@@ -817,11 +817,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "e7128320882c6016439a1e1037d41174",
+            "id": "0278d64d5bc21a64f45382aa7ef68279",
             "name": "Lotus to PDF",
             "url": "httpsdo.convertapi.com\/\/Lotus2Pdf",
             "description": "The API for converting Lotus Smart Suite documents to PDF files and Images. These file formats 123, 12m, wk1, wk2, wk3, lwp, mwp, sam can be converted to pdf, pdfa, png, jpg, tif.",
@@ -904,11 +904,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "926262e3558f81c4a86c3202634fccdb",
+            "id": "3da2fd667f08d202f72c2690289156fb",
             "name": "Open Office to Image",
             "url": "httpsdo.convertapi.com\/\/OpenOffice2Image",
             "description": "The API for converting OpenOffice documents to PDF files and Images. These file formats mml, odc, odf, odg, odi, odm, odp, ods, odt, otg, oth, otp, ots, pxl, sgl, smf, srw, stc, sti, stw, sxc, sxg, sxi, sxm, sxw, vor, wv2 can be converted to png, jpg, tif.",
@@ -991,11 +991,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "fa7f52e3f0fd72e847b4fd26386ab090",
+            "id": "2156eaecf837e65c1e3d9f7d584f1f71",
             "name": "Open Office to PDF",
             "url": "httpsdo.convertapi.com\/\/OpenOffice2Pdf",
             "description": "The API for converting OpenOffice documents to PDF files and Images. These file formats mml, odc, odf, odg, odi, odm, odp, ods, odt, otg, oth, otp, ots, pxl, sgl, smf, srw, stc, sti, stw, sxc, sxg, sxi, sxm, sxw, vor, wv2 can be converted to pdf, pdfa, png, jpg, tif.",
@@ -1085,11 +1085,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "11a5e5d87cc9386f6fa761c1ef5bbbaf",
+            "id": "71ba1feb387c39bbfde26ef193684ce5",
             "name": "PDF to Image",
             "url": "httpsdo.convertapi.com\/\/Pdf2Image",
             "description": "The API for converting PDF documents to Image. These file formats pdf can be converted to png, jpg, tif.",
@@ -1165,11 +1165,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "795abecdc4bbf9551641f9876feb3b45",
+            "id": "9a3ffd488b9044601d4c32d86ff71068",
             "name": "PDF to PDF",
             "url": "httpsdo.convertapi.com\/\/Pdf2Pdf",
             "description": "The API for converting PDF documents to Image. These file formats pdf can be converted to pdf, pdfa, png, jpg, tif.",
@@ -1252,11 +1252,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "c6cbb985f1dd1c32fcb3980e515e565f",
+            "id": "a8baaf4a068cd50d888a6f8d516e5af2",
             "name": "PDF to Power Point",
             "url": "httpsdo.convertapi.com\/\/Pdf2PowerPoint",
             "description": "The API for converting PDF documents to PowerPoint presentation files. These file formats pdf, pdfa can be converted to pptx.",
@@ -1304,11 +1304,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "090e705f42e3843786a652d146e98b71",
+            "id": "472d2a7f1fc68f3c34553f452bbf6233",
             "name": "Post Script to Image",
             "url": "httpsdo.convertapi.com\/\/PostScript2Image",
             "description": "The API for converting PostScript files to PDF files and Images. These file formats ps, eps, prn can be converted to png, jpg, tif.",
@@ -1384,11 +1384,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "8309b19efda8900aa9507a6db564eb17",
+            "id": "3b556a6c621dd3858710e5894206ae91",
             "name": "Post Script to PDF",
             "url": "httpsdo.convertapi.com\/\/PostScript2Pdf",
             "description": "The API for converting PostScript files to PDF files and Images. These file formats ps, eps, prn can be converted to pdf, pdfa, png, jpg, tif.",
@@ -1471,11 +1471,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "264af4154300830a8fb00459863d032e",
+            "id": "63b58e4cf01a480cb27066fdc5743b58",
             "name": "Power Point to Image",
             "url": "httpsdo.convertapi.com\/\/PowerPoint2Image",
             "description": "The API for converting PowerPoint documents to PDF files and Images. These file formats pot, potx, pps, ppsx, ppt, pptx can be converted to png, jpg, tif.",
@@ -1558,11 +1558,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "c24495c0728abe1839e44621e7427a75",
+            "id": "d51f8de2cfa6a9462b31b98468aca8e0",
             "name": "Power Point to PDF",
             "url": "httpsdo.convertapi.com\/\/PowerPoint2Pdf",
             "description": "The API for converting PowerPoint documents to PDF files and Images. These file formats pot, potx, pps, ppsx, ppt, pptx can be converted to pdf, pdfa, png, jpg, tif.",
@@ -1652,11 +1652,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "7fa9eb7d5aaf32305434e5dad28987d7",
+            "id": "427e12a70d26c8ebb1017ee8ea8633b9",
             "name": "Project to Image",
             "url": "httpsdo.convertapi.com\/\/Project2Image",
             "description": "The API for converting Project documents to PDF files and Images. These file formats mpp, mpt can be converted to png, jpg, tif.",
@@ -1732,11 +1732,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "611e21af273957eb45b63cc35908e315",
+            "id": "83c0b3d6314996109243a4ae02baf9bb",
             "name": "Project to PDF",
             "url": "httpsdo.convertapi.com\/\/Project2Pdf",
             "description": "The API for converting Project documents to PDF files and Images. These file formats mpp, mpt can be converted to pdf, pdfa, png, jpg, tif.",
@@ -1819,11 +1819,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "6a34143bff0052c3c82ece719a3e438f",
+            "id": "f6b9da60fbe9b6269e61aba208456dce",
             "name": "Publisher to Image",
             "url": "httpsdo.convertapi.com\/\/Publisher2Image",
             "description": "The API for converting Publisher documents to PDF files and Images. These file formats pub can be converted to png, jpg, tif.",
@@ -1906,11 +1906,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "653b0de3a8c1da3d3f7d02983c1a1882",
+            "id": "9b92060665e66a499a23592e1b02a522",
             "name": "Publisher to PDF",
             "url": "httpsdo.convertapi.com\/\/Publisher2Pdf",
             "description": "The API for converting Publisher documents to PDF files and Images. These file formats pub can be converted to pdf, pdfa, png, jpg, tif.",
@@ -2000,11 +2000,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "52e2caae79cc58bc4673662571d8922a",
+            "id": "860e8d5ece9e0b4c461221b00fc42fc7",
             "name": "Rich Text to Image",
             "url": "httpsdo.convertapi.com\/\/RichText2Image",
             "description": "The API for converting Rich Text documents to PDF files and Images. These file formats rtf can be converted to png, jpg, tif.",
@@ -2080,11 +2080,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "7ddfe549dc1dfcb4a6597dd978d7a202",
+            "id": "aa7897920a157b59c8d2fddc4b2ae1b3",
             "name": "Rich Text to PDF",
             "url": "httpsdo.convertapi.com\/\/RichText2Pdf",
             "description": "The API for converting Rich Text documents to PDF files and Images. These file formats rtf can be converted to pdf, pdfa, png, jpg, tif.",
@@ -2167,11 +2167,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "49970771539e8705d8f0c587eb22e8d0",
+            "id": "934adea328296740f144ecbf3720f9db",
             "name": "Snap Shot to Image",
             "url": "httpsdo.convertapi.com\/\/SnapShot2Image",
             "description": "The API for converting Access Report Snapshots documents to PDF files and Images. These file formats snp can be converted to png, jpg, tif.",
@@ -2247,11 +2247,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "4d84a609bf46f50391a38c57c5371539",
+            "id": "a1a4513cd79b357005c89274eab9ddc0",
             "name": "Snap Shot to PDF",
             "url": "httpsdo.convertapi.com\/\/SnapShot2Pdf",
             "description": "The API for converting Access Report Snapshots documents to PDF files and Images. These file formats snp can be converted to pdf, pdfa, png, jpg, tif.",
@@ -2334,11 +2334,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "a0310bd8e3278cf5e17e8a1aea878906",
+            "id": "801d9e89ee3120e2edf95e93c8174f01",
             "name": "Text to Image",
             "url": "httpsdo.convertapi.com\/\/Text2Image",
             "description": "The API for converting Textual files to PDF files and Images. These file formats txt, log can be converted to png, jpg, tif.",
@@ -2414,11 +2414,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "5488608b3e95c46c8176148ec92784b5",
+            "id": "3d941441408cafb3135aeb52d30f7970",
             "name": "Text to PDF",
             "url": "httpsdo.convertapi.com\/\/Text2Pdf",
             "description": "The API for converting Textual files to PDF files and Images. These file formats txt, log can be converted to pdf, pdfa, png, jpg, tif.",
@@ -2501,11 +2501,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "b430cfb857a8ee709ea1ff8b163989b5",
+            "id": "3b6b317d4f14ba2ce3f6415e6644d801",
             "name": "Visio to Image",
             "url": "httpsdo.convertapi.com\/\/Visio2Image",
             "description": "The API for converting Visio documents to PDF files and Images. These file formats vsd, vst, vsdx, vstx can be converted to png, jpg, tif.",
@@ -2588,11 +2588,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "1855d5d6e12c14c5fadc718421be64ea",
+            "id": "791db5469acda3291b3516266418f3b3",
             "name": "Visio to PDF",
             "url": "httpsdo.convertapi.com\/\/Visio2Pdf",
             "description": "The API for converting Visio documents to PDF files and Images. These file formats vsd, vst, vsdx, vstx can be converted to pdf, pdfa, png, jpg, tif.",
@@ -2682,11 +2682,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "d7c2cb0b24c024fa07fa2981c92afb32",
+            "id": "f260f9bc324c42beafaadbc4928f0fd4",
             "name": "Web to Image",
             "url": "httpsdo.convertapi.com\/\/Web2Image",
             "description": "The API for converting Web Pages to Images.",
@@ -2804,11 +2804,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "498e206b0077e335a041ecbe4b78d1c4",
+            "id": "a6facb9f38120c2f21985af2e76db516",
             "name": "Web to PDF",
             "url": "httpsdo.convertapi.com\/\/Web2Pdf",
             "description": "The API for converting Web Pages to PDF files.",
@@ -3136,11 +3136,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "d809ed4399302ba649042ccdb10d0800",
+            "id": "fe2f3c6ac35c292173ce6d973e5ce2bc",
             "name": "Word to Image",
             "url": "httpsdo.convertapi.com\/\/Word2Image",
             "description": "The API for converting Word documents to PDF files and Images. These file formats doc, docx, dot, dotx, wpd, wps, wri can be converted to png, jpg, tif.",
@@ -3223,11 +3223,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "3e5621ab75310911151d5080b4aa45b3",
+            "id": "01cd0265d8b88085c166ed4bffdf9831",
             "name": "Word to PDF",
             "url": "httpsdo.convertapi.com\/\/Word2Pdf",
             "description": "The API for converting Word documents to PDF files and Images. These file formats doc, docx, dot, dotx, wpd, wps, wri can be converted to pdf, pdfa, png, jpg, tif.",
@@ -3317,11 +3317,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "33c7bffbee0f3f8d25b8d0019ca3ab38",
+            "id": "fd98c408b507d33f98bc8f33c6d80dfd",
             "name": "Xps to Image",
             "url": "httpsdo.convertapi.com\/\/Xps2Image",
             "description": "The API for converting Open XML Paper Specification documents to PDF files. These file formats xps can be converted to png, jpg, tif.",
@@ -3397,11 +3397,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         },
         {
-            "id": "c1f1a65e1f060922f03dd54a611c51fa",
+            "id": "bd0cf56ee1019d92b81e376b2972c773",
             "name": "Xps to PDF",
             "url": "httpsdo.convertapi.com\/\/Xps2Pdf",
             "description": "The API for converting Open XML Paper Specification documents to PDF files. These file formats xps can be converted to pdf, pdfa, png, jpg, tif.",
@@ -3484,7 +3484,7 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "66be30aeff6d5a978150d694e22c38a1",
+            "collectionId": "e7db22a85f55a405534d55a427617a83",
             "rawModeData": ""
         }
     ]
