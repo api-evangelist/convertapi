@@ -1,0 +1,41 @@
+name: ConvertAPI FinOps
+description: Financial operations guidance for managing ConvertAPI costs. Billing is usage-based within monthly subscription tiers. Overage charges accrue automatically when conversion quotas are exceeded without plan suspension. Monitor consumption via the /user endpoint or the account statistics dashboard to avoid unexpected charges. Use multiple API Tokens to separate production and development usage and apply per-token consumption limits.
+url: https://www.convertapi.com/pricing
+recommendations:
+  - name: Monitor Consumption Proactively
+    description: Call the /user endpoint regularly or review the account statistics dashboard to track remaining conversions and avoid surprise overage fees. Set up alerts before hitting quota limits.
+  - name: Separate Environments with API Tokens
+    description: Create distinct API Tokens for production and development environments. Apply usage limits per token to prevent development or testing workloads from consuming production quota.
+  - name: Implement Retry Logic for 503 Errors
+    description: Throttle-induced 503 errors are transient. Use progressive back-off retries (5s, 10s, 15s) rather than failing immediately, which avoids unnecessary re-submission and wasted conversions.
+  - name: Right-Size Your Plan
+    description: Upgrade incrementally — Developer ($35/mo) through Business ($350/mo). Review monthly consumption against plan quota. Overage charges can exceed the cost of upgrading a tier.
+  - name: Batch Conversions Where Possible
+    description: Use Conversion Workflows to chain multiple format conversions in a single API call, reducing the total conversion count consumed for multi-step transformations.
+  - name: Use Async Conversions for Large Files
+    description: Use asynchronous conversion mode for large or slow files to avoid blocking threads and improve throughput efficiency without consuming extra conversion credits.
+cost_model:
+  type: subscription-plus-overage
+  billing_period: monthly
+  currency: USD
+  tiers:
+    - name: Free Trial
+      price: 0.00
+      conversions_included: 250
+      overage_per_conversion: N/A
+    - name: Developer
+      price: 35.00
+      conversions_included: usage-based quota
+      overage_per_conversion: contact vendor
+    - name: Startup
+      price: 95.00
+      conversions_included: usage-based quota
+      overage_per_conversion: contact vendor
+    - name: Growth
+      price: 175.00
+      conversions_included: usage-based quota
+      overage_per_conversion: contact vendor
+    - name: Business
+      price: 350.00
+      conversions_included: usage-based quota
+      overage_per_conversion: contact vendor

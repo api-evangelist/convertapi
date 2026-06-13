@@ -1,0 +1,75 @@
+name: ConvertAPI Plans and Pricing
+description: Subscription-based pricing plans for ConvertAPI file conversion services with usage-based billing. All plans include access to 200+ file format conversions, API access, dashboard analytics, and integrations with Zapier, n8n, and AWS Lambda. Overages are charged beyond plan conversion limits.
+url: https://www.convertapi.com/pricing
+plans:
+  - name: Free Trial
+    description: Card-free trial for developers to evaluate the API. Provides a one-time allocation of conversions with limited format support. Expires after 30 days.
+    price: 0.00
+    unit: one-time
+    currency: USD
+    features:
+      - 250 one-time conversions
+      - Limited file formats
+      - API Token access
+      - 30-day expiration
+  - name: Developer
+    description: Entry-level paid plan for individual developers and small projects requiring moderate conversion volume.
+    price: 35.00
+    unit: per month
+    currency: USD
+    features:
+      - Usage-based conversion quota
+      - All supported file formats (200+)
+      - REST API access
+      - API Token authentication
+      - Dashboard analytics
+      - Zapier integration
+      - n8n integration
+      - AWS Lambda integration
+      - Overage charges apply beyond quota
+  - name: Startup
+    description: Mid-tier plan suited for growing startups and small teams with higher conversion needs.
+    price: 95.00
+    unit: per month
+    currency: USD
+    features:
+      - Higher usage-based conversion quota
+      - All supported file formats (200+)
+      - REST API access
+      - API Token and JWT authentication
+      - Dashboard analytics
+      - Multiple API Tokens (environment separation)
+      - Zapier, n8n, AWS Lambda integrations
+      - Overage charges apply beyond quota
+  - name: Growth
+    description: Plan for scaling businesses and teams with substantial file conversion workloads.
+    price: 175.00
+    unit: per month
+    currency: USD
+    features:
+      - High usage-based conversion quota
+      - All supported file formats (200+)
+      - REST API access
+      - API Token and JWT authentication
+      - Dashboard analytics and statistics
+      - Multiple API Tokens (environment separation)
+      - Priority support
+      - Zapier, n8n, AWS Lambda integrations
+      - Overage charges apply beyond quota
+  - name: Business
+    description: High-volume plan for enterprises and large-scale applications requiring maximum throughput and no throttle limits.
+    price: 350.00
+    unit: per month
+    currency: USD
+    features:
+      - Highest usage-based conversion quota
+      - All supported file formats (200+)
+      - REST API access
+      - API Token, JWT, and Master Token authentication
+      - Advanced dashboard analytics and statistics
+      - Multiple API Tokens (environment separation)
+      - No hard concurrent request limits
+      - GeoDNS routing for optimal performance
+      - Priority support
+      - Custom integrations
+      - Overage charges apply beyond quota

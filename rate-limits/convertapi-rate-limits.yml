@@ -1,0 +1,49 @@
+name: ConvertAPI Rate Limits
+description: ConvertAPI enforces rate limits based on subscription tier and server resource availability. Business and Enterprise customers have no hard concurrent request limits. All other tiers are subject to throttling during periods of high server utilization, returning HTTP 503. The recommended retry strategy uses progressive back-off with three attempts at 5, 10, and 15 second intervals. Conversion quota exhaustion returns HTTP 403.
+url: https://docs.convertapi.com/docs/throttle-and-fallback
+limits:
+  - name: Free Trial Conversion Quota
+    description: Total one-time conversions available on the free trial plan before purchase is required.
+    limit: 250
+    unit: conversions
+    period: lifetime
+    scope: account
+  - name: Concurrent Requests (Developer/Startup/Growth)
+    description: Simultaneous API calls are subject to throttling during heavy server resource utilization for non-Business accounts. Throttling returns HTTP 503 and is resolved by retrying with progressive delays.
+    limit: variable
+    unit: concurrent conversions
+    period: real-time
+    scope: account
+    notes: Not a fixed numeric cap; throttled based on server resource availability. Retry after 5s, 10s, 15s.
+  - name: Concurrent Requests (Business/Enterprise)
+    description: Business and Enterprise plan customers have no hard limits on simultaneous API calls.
+    limit: unlimited
+    unit: concurrent conversions
+    period: real-time
+    scope: account
+  - name: Conversion Quota
+    description: Monthly conversion allocation varies by subscription plan. Exceeding the quota returns HTTP 403 Forbidden. Overage charges apply rather than hard blocking on paid plans.
+    limit: plan-dependent
+    unit: conversions
+    period: per month
+    scope: account
+response_codes:
+  - code: 200
+    meaning: Conversion completed successfully
+  - code: 401
+    meaning: Invalid or missing API credentials
+  - code: 403
+    meaning: No conversions remaining — upgrade plan or purchase more conversions
+  - code: 415
+    meaning: Unsupported file format
+  - code: 503
+    meaning: Request rejected due to rate limits — retry after a few seconds
+retry_strategy:
+  description: Progressive back-off retry recommended for 503 responses
+  attempts:
+    - attempt: 1
+      wait_seconds: 5
+    - attempt: 2
+      wait_seconds: 10
+    - attempt: 3
+      wait_seconds: 15

@@ -1,0 +1,87 @@
+aid: convertapi
+name: ConvertAPI
+description: ConvertAPI is a file conversion REST API supporting over 200 file format conversions including PDF, Microsoft Office documents (Word, Excel, PowerPoint), images, audio, video, and e-book formats. The API provides batch processing via Conversion Workflows, asynchronous conversion, a Virtual File Server for managing files, and SDKs across 12 programming languages. The platform is ISO 27001 certified and HIPAA and GDPR compliant with a 99.95% uptime guarantee.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/convertapi/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+tags:
+  - File Conversion
+  - PDF
+  - Documents
+  - Images
+  - Audio
+  - Video
+  - E-books
+  - Office Documents
+  - Batch Processing
+apis:
+  - name: ConvertAPI
+    description: REST API for converting files between 200+ formats including PDF, Office documents, images, audio, video, and e-book formats. Supports synchronous and asynchronous conversions, conversion workflows, and a Virtual File Server for file management.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://www.convertapi.com/
+    baseURL: https://v2.convertapi.com
+    tags:
+      - File Conversion
+      - PDF
+      - Documents
+      - Images
+    properties:
+      - type: Documentation
+        url: https://docs.convertapi.com/
+      - type: OpenAPI
+        url: https://v2.convertapi.com/info/openapi
+      - type: Authentication
+        url: https://docs.convertapi.com/docs/authentication
+      - type: GettingStarted
+        url: https://docs.convertapi.com/docs/getting-started
+      - type: ResponseCodes
+        url: https://docs.convertapi.com/docs/response-codes
+      - type: ThrottleAndFallback
+        url: https://docs.convertapi.com/docs/throttle-and-fallback
+      - type: ConversionWorkflows
+        url: https://docs.convertapi.com/docs/conversion-workflows
+      - type: AsyncConversions
+        url: https://docs.convertapi.com/docs/async-conversions
+      - type: FileStorage
+        url: https://docs.convertapi.com/docs/file-storage
+      - type: PostmanCollection
+        url: https://www.convertapi.com/integration
+      - type: SDKLibraries
+        url: https://www.convertapi.com/integration/libraries
+      - type: MCPServer
+        url: https://docs.convertapi.com/docs/mcp-server
+    contact:
+      - FN: ConvertAPI Support
+        url: https://help.convertapi.com/
+common:
+  - type: Website
+    url: https://www.convertapi.com/
+  - type: Documentation
+    url: https://docs.convertapi.com/
+  - type: GitHubOrg
+    url: https://github.com/ConvertAPI
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/convertapi
+  - type: Blog
+    url: https://www.convertapi.com/blog
+  - type: Pricing
+    url: https://www.convertapi.com/pricing
+  - type: StatusPage
+    url: https://status.convertapi.com/
+  - type: X
+    url: https://x.com/ConvertAPI_
+  - type: Plans
+    url: plans/convertapi-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/convertapi-rate-limits.yml
+  - type: FinOps
+    url: finops/convertapi-finops.yml
+  - type: Changelog
+    url: https://docs.convertapi.com/changelog
+  - type: HelpDesk
+    url: https://help.convertapi.com/
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
