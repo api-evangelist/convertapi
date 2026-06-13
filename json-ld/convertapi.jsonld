@@ -1,0 +1,823 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "convertapi": "https://www.convertapi.com/vocab#",
+    "openapi": "https://spec.openapis.org/oas/v3.0#"
+  },
+  "@type": "WebAPI",
+  "@id": "https://www.convertapi.com/",
+  "name": "ConvertAPI",
+  "description": "High-Performance File Conversion API supporting 200+ file formats",
+  "termsOfService": "https://www.convertapi.com/terms",
+  "version": "v2",
+  "documentation": "https://docs.convertapi.com/",
+  "provider": {
+    "@type": "Organization",
+    "name": "ConvertAPI",
+    "url": "https://www.convertapi.com/",
+    "email": "support@convertapi.com",
+    "sameAs": [
+      "https://github.com/ConvertAPI",
+      "https://www.linkedin.com/company/convertapi",
+      "https://x.com/ConvertAPI_"
+    ]
+  },
+  "availableChannel": [
+    {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://v2.convertapi.com",
+      "name": ""
+    },
+    {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://eu-v2.convertapi.com",
+      "name": ""
+    },
+    {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://uk-v2.convertapi.com",
+      "name": ""
+    },
+    {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://us-v2.convertapi.com",
+      "name": ""
+    },
+    {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://ca-v2.convertapi.com",
+      "name": ""
+    },
+    {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://as-v2.convertapi.com",
+      "name": ""
+    },
+    {
+      "@type": "ServiceChannel",
+      "serviceUrl": "https://au-v2.convertapi.com",
+      "name": ""
+    }
+  ],
+  "featureList": [
+    "200+ file format conversions",
+    "Synchronous and asynchronous conversions",
+    "Conversion Workflows (batch processing)",
+    "Virtual File Server",
+    "ISO 27001 certified",
+    "HIPAA and GDPR compliant",
+    "99.95% uptime SLA",
+    "SDKs for 12 programming languages",
+    "MCP Server support"
+  ],
+  "convertapi:supportedConversions": [
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "ai",
+      "convertapi:targetFormats": [
+        "tiff",
+        "png",
+        "svg",
+        "jpg",
+        "webp",
+        "pnm"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "barcode",
+      "convertapi:targetFormats": [
+        "data"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "bmp",
+      "convertapi:targetFormats": [
+        "tiff",
+        "png",
+        "svg",
+        "jpg",
+        "webp",
+        "pnm",
+        "pdf"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "csv",
+      "convertapi:targetFormats": [
+        "pdf",
+        "xlsx"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "data",
+      "convertapi:targetFormats": [
+        "qrcode",
+        "barcode"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "djvu",
+      "convertapi:targetFormats": [
+        "tiff",
+        "png",
+        "jpg",
+        "webp",
+        "pdf"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "doc",
+      "convertapi:targetFormats": [
+        "docx"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "document",
+      "convertapi:targetFormats": [
+        "moderate"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "docx",
+      "convertapi:targetFormats": [
+        "tiff",
+        "compare",
+        "png",
+        "jpg",
+        "md",
+        "webp",
+        "html",
+        "pdf",
+        "rtf",
+        "txt",
+        "xml",
+        "odt",
+        "docx",
+        "protect"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "dotx",
+      "convertapi:targetFormats": [
+        "pdf",
+        "jpg"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "dwf",
+      "convertapi:targetFormats": [
+        "tiff",
+        "png",
+        "svg",
+        "jpg",
+        "webp",
+        "pdf"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "dwg",
+      "convertapi:targetFormats": [
+        "tiff",
+        "png",
+        "svg",
+        "jpg",
+        "webp",
+        "pdf"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "dxf",
+      "convertapi:targetFormats": [
+        "tiff",
+        "png",
+        "svg",
+        "jpg",
+        "webp",
+        "pdf"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "email",
+      "convertapi:targetFormats": [
+        "extract",
+        "metadata"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "eml",
+      "convertapi:targetFormats": [
+        "tiff",
+        "png",
+        "jpg",
+        "webp",
+        "pdf"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "eps",
+      "convertapi:targetFormats": [
+        "pdf",
+        "tiff",
+        "png",
+        "jpg"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "epub",
+      "convertapi:targetFormats": [
+        "tiff",
+        "png",
+        "jpg",
+        "webp",
+        "pdf"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "file",
+      "convertapi:targetFormats": [
+        "zip",
+        "pdf"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "gif",
+      "convertapi:targetFormats": [
+        "tiff",
+        "png",
+        "svg",
+        "jpg",
+        "webp",
+        "pnm",
+        "pdf",
+        "gif"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "heic",
+      "convertapi:targetFormats": [
+        "tiff",
+        "png",
+        "svg",
+        "jpg",
+        "webp",
+        "pnm",
+        "pdf",
+        "jxl"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "heif",
+      "convertapi:targetFormats": [
+        "pdf",
+        "jpg"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "html",
+      "convertapi:targetFormats": [
+        "png",
+        "jpg",
+        "md",
+        "xlsx",
+        "pdf",
+        "txt",
+        "docx",
+        "xls"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "ico",
+      "convertapi:targetFormats": [
+        "png",
+        "svg",
+        "jpg",
+        "webp",
+        "pdf"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "image",
+      "convertapi:targetFormats": [
+        "moderate"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "images",
+      "convertapi:targetFormats": [
+        "join",
+        "pdf"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "jfif",
+      "convertapi:targetFormats": [
+        "pdf"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "jpg",
+      "convertapi:targetFormats": [
+        "compress",
+        "tiff",
+        "png",
+        "svg",
+        "jpg",
+        "webp",
+        "pnm",
+        "pdf",
+        "pptx",
+        "txt",
+        "docx",
+        "jxl",
+        "gif"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "key",
+      "convertapi:targetFormats": [
+        "pptx"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "log",
+      "convertapi:targetFormats": [
+        "pdf",
+        "docx",
+        "txt"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "md",
+      "convertapi:targetFormats": [
+        "pdf",
+        "html"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "mhtml",
+      "convertapi:targetFormats": [
+        "docx"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "mobi",
+      "convertapi:targetFormats": [
+        "tiff",
+        "png",
+        "jpg",
+        "webp",
+        "pdf"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "msg",
+      "convertapi:targetFormats": [
+        "tiff",
+        "png",
+        "jpg",
+        "webp",
+        "pdf"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "numbers",
+      "convertapi:targetFormats": [
+        "xlsx",
+        "csv"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "odc",
+      "convertapi:targetFormats": [
+        "pdf",
+        "png",
+        "jpg"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "odf",
+      "convertapi:targetFormats": [
+        "pdf",
+        "png",
+        "jpg"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "odg",
+      "convertapi:targetFormats": [
+        "pdf"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "odp",
+      "convertapi:targetFormats": [
+        "pdf",
+        "png",
+        "jpg"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "ods",
+      "convertapi:targetFormats": [
+        "pdf",
+        "png",
+        "jpg"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "odt",
+      "convertapi:targetFormats": [
+        "png",
+        "jpg",
+        "pdf",
+        "xml",
+        "txt",
+        "docx"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "office",
+      "convertapi:targetFormats": [
+        "pdf"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "pages",
+      "convertapi:targetFormats": [
+        "docx",
+        "txt"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "pdf",
+      "convertapi:targetFormats": [
+        "split",
+        "md",
+        "crop",
+        "xlsx",
+        "pdfua",
+        "pdf",
+        "rtf",
+        "pcl",
+        "ocr",
+        "tiff-fax",
+        "resize",
+        "fdf-extract",
+        "png",
+        "csv",
+        "image-watermark",
+        "pdfa",
+        "extract",
+        "print",
+        "redact",
+        "merge",
+        "html",
+        "docx",
+        "repair",
+        "pptx",
+        "protect",
+        "flatten",
+        "tiff",
+        "svg",
+        "jpg",
+        "fdf-import",
+        "webp",
+        "extract-images",
+        "text-watermark",
+        "txt",
+        "unprotect",
+        "rasterize",
+        "compress",
+        "pdf-watermark",
+        "delete-pages",
+        "meta",
+        "rotate",
+        "extract-attachments"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "pdfa",
+      "convertapi:targetFormats": [
+        "validate"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "peppol",
+      "convertapi:targetFormats": [
+        "pdf"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "png",
+      "convertapi:targetFormats": [
+        "tiff",
+        "png",
+        "svg",
+        "jpg",
+        "webp",
+        "pnm",
+        "pdf",
+        "docx",
+        "pptx",
+        "gif"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "po",
+      "convertapi:targetFormats": [
+        "translate"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "potx",
+      "convertapi:targetFormats": [
+        "tiff",
+        "png",
+        "jpg",
+        "webp",
+        "pdf",
+        "pptx"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "ppsx",
+      "convertapi:targetFormats": [
+        "tiff",
+        "png",
+        "jpg",
+        "webp",
+        "pdf",
+        "pptx"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "ppt",
+      "convertapi:targetFormats": [
+        "pptx"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "pptx",
+      "convertapi:targetFormats": [
+        "tiff",
+        "png",
+        "jpg",
+        "webp",
+        "pdf",
+        "pptx",
+        "protect"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "prn",
+      "convertapi:targetFormats": [
+        "pdf",
+        "tiff",
+        "png",
+        "jpg"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "ps",
+      "convertapi:targetFormats": [
+        "pdf",
+        "tiff",
+        "png",
+        "jpg"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "psd",
+      "convertapi:targetFormats": [
+        "tiff",
+        "png",
+        "svg",
+        "jpg",
+        "webp",
+        "pnm"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "pub",
+      "convertapi:targetFormats": [
+        "pdf",
+        "tiff",
+        "png",
+        "jpg"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "qrcode",
+      "convertapi:targetFormats": [
+        "data"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "rtf",
+      "convertapi:targetFormats": [
+        "pdf",
+        "html",
+        "txt",
+        "jpg"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "svg",
+      "convertapi:targetFormats": [
+        "tiff",
+        "png",
+        "svg",
+        "jpg",
+        "webp",
+        "pnm",
+        "pdf"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "template",
+      "convertapi:targetFormats": [
+        "pdf",
+        "docx"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "tiff",
+      "convertapi:targetFormats": [
+        "tiff",
+        "png",
+        "svg",
+        "jpg",
+        "webp",
+        "pnm",
+        "pdf"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "txt",
+      "convertapi:targetFormats": [
+        "pdf",
+        "jpg"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "vsdx",
+      "convertapi:targetFormats": [
+        "pdf",
+        "tiff",
+        "png",
+        "jpg"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "web",
+      "convertapi:targetFormats": [
+        "pdf",
+        "png",
+        "txt",
+        "jpg"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "webp",
+      "convertapi:targetFormats": [
+        "tiff",
+        "png",
+        "svg",
+        "jpg",
+        "webp",
+        "pnm",
+        "pdf",
+        "gif"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "wpd",
+      "convertapi:targetFormats": [
+        "pdf"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "xls",
+      "convertapi:targetFormats": [
+        "xlsx",
+        "xls"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "xlsb",
+      "convertapi:targetFormats": [
+        "pdf",
+        "csv"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "xlsx",
+      "convertapi:targetFormats": [
+        "tiff",
+        "png",
+        "jpg",
+        "csv",
+        "webp",
+        "xlsx",
+        "pdf",
+        "protect"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "xltx",
+      "convertapi:targetFormats": [
+        "pdf"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "xml",
+      "convertapi:targetFormats": [
+        "docx"
+      ]
+    },
+    {
+      "@type": "convertapi:ConversionCapability",
+      "convertapi:sourceFormat": "zip",
+      "convertapi:targetFormats": [
+        "extract"
+      ]
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "ConvertAPI Plans",
+    "url": "https://www.convertapi.com/pricing"
+  },
+  "license": "Apache 2.0",
+  "apiEndpoint": "https://v2.convertapi.com",
+  "openAPISpecification": "https://v2.convertapi.com/info/openapi"
+}

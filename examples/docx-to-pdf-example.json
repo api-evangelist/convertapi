@@ -1,0 +1,34 @@
+{
+  "title": "Convert DOCX to PDF",
+  "description": "Example request and response for converting a Word document to PDF",
+  "request": {
+    "method": "POST",
+    "url": "https://v2.convertapi.com/convert/docx/to/pdf?Secret=YOUR_SECRET",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "Parameters": [
+        {
+          "Name": "File",
+          "FileValue": {
+            "Name": "my-document.docx",
+            "Url": "https://example.com/my-document.docx"
+          }
+        }
+      ]
+    }
+  },
+  "response": {
+    "ConversionCost": 5,
+    "Files": [
+      {
+        "FileName": "my-document.pdf",
+        "FileExt": "pdf",
+        "FileSize": 12345,
+        "FileId": "abc123",
+        "Url": "https://v2.convertapi.com/d/abc123/my-document.pdf"
+      }
+    ]
+  }
+}

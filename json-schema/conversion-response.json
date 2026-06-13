@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ConversionResponse",
+  "description": "Common properties for ConvertAPI conversion response bodies",
+  "type": "object",
+  "properties": {
+    "FileName": {
+      "type": "string",
+      "example": "myfile.docx"
+    },
+    "FileExt": {
+      "type": "string",
+      "example": "docx"
+    },
+    "FileSize": {
+      "type": "integer",
+      "format": "int32",
+      "example": "1026736"
+    },
+    "FileId": {
+      "type": "string",
+      "example": "9shcxkk4zvesuzl2xavmg9afqbr2ty62"
+    },
+    "Url": {
+      "type": "string",
+      "format": "uri",
+      "example": "https://v2.convertapi.com/d/9shcxkk4zvesuzl2xavmg9afqbr2ty62"
+    },
+    "Active": {
+      "type": "boolean",
+      "description": "User can perform conversions"
+    },
+    "Email": {
+      "type": "string",
+      "description": "User email",
+      "example": "user@example.com"
+    },
+    "Secret": {
+      "type": "string",
+      "description": "Authentication secret",
+      "example": "1XKrszdaFZH33WTh"
+    },
+    "ApiKey": {
+      "type": "integer",
+      "description": "Authentication API key",
+      "format": "int64",
+      "example": 842679918
+    },
+    "ConversionsTotal": {
+      "type": "integer",
+      "description": "Plan conversion count",
+      "format": "int64",
+      "example": 5000
+    },
+    "ConversionsConsumed": {
+      "type": "integer",
+      "description": "Conversions consumed",
+      "format": "int64",
+      "example": 458
+    },
+    "SecondsLeft": {
+      "type": "integer",
+      "format": "int64",
+      "deprecated": true
+    },
+    "FullName": {
+      "type": "string",
+      "description": "User full name",
+      "example": "John Wick"
+    },
+    "ConversionCost": {
+      "type": "integer",
+      "description": "This amount will be deducted from your balance after the conversion.",
+      "format": "int32",
+      "example": 1
+    },
+    "Files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "FileName": {
+            "type": "string",
+            "description": "Name of the converted file.",
+            "example": "myfile.pdf"
+          },
+          "FileExt": {
+            "type": "string",
+            "description": "File type (file name extension)",
+            "example": "pdf"
+          },
+          "FileSize": {
+            "type": "integer",
+            "description": "File size",
+            "format": "int32",
+            "example": 111955
+          },
+          "FileId": {
+            "type": "string",
+            "description": "File ID",
+            "example": "25811safe8e61dd3f51ef00ee5f58b92"
+          },
+          "Url": {
+            "type": "string",
+            "description": "File URL",
+            "example": "https://v2.convertapi.com/d/v01plsb72o0cmdooq90w4d1lnqsf6oy4/myfile.pdf"
+          },
+          "FileData": {
+            "type": "string",
+            "description": "Base64 encoded file data",
+            "format": "base64",
+            "example": "JVBERi0xLjcKJb662+4KMSAwIG9iago8PC9UeXBlIC9DYXRhbG9n..."
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,2799 @@
+{
+  "POST /upload": {
+    "path": "/upload",
+    "method": "POST",
+    "summary": "Upload file",
+    "description": "When source files require multiple conversions, optimizing performance is possible by uploading the file once and then performing multiple conversions without the need for re-uploading.\nThe uploaded file is securely stored on the convertapi.com server for a maximum period of 3 hours and can be accessed through a unique secret URL with a UUID.\nIn conversion requests, the file can be referenced using the File ID, which is generated upon successful file upload.\n",
+    "parameters": [
+      {
+        "name": "filename",
+        "in": "query",
+        "description": "File name.\nRequired if the header field `content-disposition` is not set.\n",
+        "schema": {
+          "type": "string"
+        },
+        "example": "myfile.pdf"
+      },
+      {
+        "name": "content-disposition",
+        "in": "header",
+        "description": "This header field is used to determine the file name.\n**Required** if query parameter `filename` is not set.\nQuery parameter `filename` overrides this parameter.\n",
+        "schema": {
+          "type": "string"
+        },
+        "example": "Content-Disposition: inline; filename=\"myfile.pdf\""
+      },
+      {
+        "name": "fileId",
+        "in": "query",
+        "description": "Custom ID for the file that is uploaded. Lowercase alphanumeric character string.",
+        "schema": {
+          "$ref": "#/components/schemas/fileId"
+        },
+        "example": "25811safe8e61dd3f51ef00ee5f58b92"
+      },
+      {
+        "name": "url",
+        "in": "query",
+        "description": "Remote file URL. The URL of the file you want to upload and store on the ConvertAPI file server.\nIf the file is accessible by the URL, it can be uploaded directly from its location by passing the URL instead of the file itself.\n",
+        "schema": {
+          "type": "string",
+          "format": "uri"
+        },
+        "example": "https://example.com/myfile.pdf"
+      },
+      {
+        "name": "headername",
+        "in": "query",
+        "description": "Remote file request header field name (used exclusively in conjunction with the `url` parameter).",
+        "schema": {
+          "type": "string"
+        },
+        "example": "header-field-name"
+      },
+      {
+        "name": "headervalue",
+        "in": "query",
+        "description": "Remote file request header field value (used exclusively in conjunction with the `url` and `headername` parameters).",
+        "schema": {
+          "type": "string"
+        },
+        "example": "Header field value"
+      }
+    ],
+    "tags": [
+      "File Server"
+    ],
+    "requestBody": {
+      "content": {
+        "multipart/form-data": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "file": {
+                "type": "string",
+                "description": "The file to upload",
+                "format": "binary"
+              }
+            }
+          },
+          "example": "There can be only one part with file data.\n```http\n[POST]\nhttps://v2.convertapi.com/upload \nContent-Type: multipart/form-data; boundary=----7MA4YWxkTrZu0gW\n\n------7MA4YWxkTrZu0gW\nContent-Disposition: form-data; name=\"file\"; filename=\"my_file.doc\"\n\n--FILE DATA--\n------7MA4YWxkTrZu0gW--\n```\n"
+        },
+        "application/octet-stream": {
+          "schema": {
+            "type": "string",
+            "format": "binary"
+          },
+          "example": "```http\n[POST]\nhttps://v2.convertapi.com/upload \nContent-Disposition: inline; filename=\"my_file.doc\"\n\n--FILE DATA--\n```\n"
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "The file to upload",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "FileName": {
+                  "type": "string",
+                  "example": "myfile.docx"
+                },
+                "FileExt": {
+                  "type": "string",
+                  "example": "docx"
+                },
+                "FileSize": {
+                  "type": "integer",
+                  "format": "int32",
+                  "example": "1026736"
+                },
+                "FileId": {
+                  "type": "string",
+                  "example": "9shcxkk4zvesuzl2xavmg9afqbr2ty62"
+                },
+                "Url": {
+                  "type": "string",
+                  "format": "uri",
+                  "example": "https://v2.convertapi.com/d/9shcxkk4zvesuzl2xavmg9afqbr2ty62"
+                }
+              }
+            }
+          },
+          "text/plain": {
+            "schema": {
+              "format": "string",
+              "example": "9shcxkk4zvesuzl2xavmg9afqbr2ty62"
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "File request with an invalid file ID",
+        "content": {}
+      },
+      "415": {
+        "description": "The file type is not supported",
+        "content": {}
+      },
+      "500": {
+        "description": "Unable to store or download remote file",
+        "content": {}
+      }
+    }
+  },
+  "GET /user": {
+    "path": "/user",
+    "method": "GET",
+    "summary": "User information",
+    "description": "The endpoint returns information about a user account. It is helpful to check the account balance status and other data. The endpoint can be authenticated only with a secret, the token is not accepted.\n",
+    "parameters": [],
+    "tags": [
+      "User"
+    ],
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Active": {
+                  "type": "boolean",
+                  "description": "User can perform conversions"
+                },
+                "Email": {
+                  "type": "string",
+                  "description": "User email",
+                  "example": "user@example.com"
+                },
+                "Secret": {
+                  "type": "string",
+                  "description": "Authentication secret",
+                  "example": "1XKrszdaFZH33WTh"
+                },
+                "ApiKey": {
+                  "type": "integer",
+                  "description": "Authentication API key",
+                  "format": "int64",
+                  "example": 842679918
+                },
+                "ConversionsTotal": {
+                  "type": "integer",
+                  "description": "Plan conversion count",
+                  "format": "int64",
+                  "example": 5000
+                },
+                "ConversionsConsumed": {
+                  "type": "integer",
+                  "description": "Conversions consumed",
+                  "format": "int64",
+                  "example": 458
+                },
+                "SecondsLeft": {
+                  "type": "integer",
+                  "format": "int64",
+                  "deprecated": true
+                },
+                "FullName": {
+                  "type": "string",
+                  "description": "User full name",
+                  "example": "John Wick"
+                }
+              }
+            }
+          }
+        }
+      },
+      "401": {
+        "description": "",
+        "content": {}
+      }
+    }
+  },
+  "GET /user/statistic": {
+    "path": "/user/statistic",
+    "method": "GET",
+    "summary": "Statistics",
+    "description": "The endpoint that returns information about your usage statistics based on the date range.",
+    "parameters": [
+      {
+        "name": "startDate",
+        "in": "query",
+        "description": "Conversions from date",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "example": "2023-09-01"
+      },
+      {
+        "name": "endDate",
+        "in": "query",
+        "description": "Conversions to date",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "example": "2023-09-30"
+      }
+    ],
+    "tags": [
+      "User"
+    ],
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "Result": {
+                    "type": "boolean",
+                    "description": "Is conversion successful"
+                  },
+                  "CreatedAt": {
+                    "type": "string",
+                    "description": "Conversion time"
+                  },
+                  "ExecutionTime": {
+                    "type": "integer",
+                    "description": "Conversion duration",
+                    "format": "int32"
+                  },
+                  "Converter": {
+                    "type": "string",
+                    "description": "File converter name"
+                  },
+                  "SourceFormat": {
+                    "type": "string",
+                    "description": "Source file format (docx, pdf, jpg etc.)"
+                  },
+                  "DestinationFormat": {
+                    "type": "string",
+                    "description": "Destination file format (docx, pdf, jpg etc.)"
+                  },
+                  "Ip": {
+                    "type": "string",
+                    "description": "File conversion request origin IP"
+                  },
+                  "Source": {
+                    "type": "string",
+                    "description": "Source file name"
+                  },
+                  "Error": {
+                    "type": "string",
+                    "description": "Conversion error message"
+                  }
+                }
+              }
+            }
+          },
+          "text/csv": {
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "",
+        "content": {}
+      }
+    }
+  },
+  "POST /convert/pdf/to/jpg": {
+    "path": "/convert/pdf/to/jpg",
+    "method": "POST",
+    "summary": "",
+    "description": "",
+    "parameters": [],
+    "tags": [
+      "Conversion"
+    ],
+    "requestBody": {
+      "content": {
+        "multipart/form-data": {
+          "schema": {
+            "required": [
+              "File"
+            ],
+            "type": "object",
+            "properties": {
+              "Timeout": {
+                "maximum": 1200,
+                "minimum": 10,
+                "type": "integer",
+                "description": "Conversion timeout in seconds.",
+                "default": 900,
+                "x-ca-featured": false,
+                "x-ca-label": "Timeout",
+                "x-ca-group": "Execution",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "10",
+                  "to": "1200"
+                }
+              },
+              "StoreFile": {
+                "type": "boolean",
+                "description": "When the `StoreFile` parameter is set to `True`, your converted file is written to ConvertAPI\u2019s encrypted, temporary storage and made available via a time-limited secure download URL, valid for up to 3 hours. After this period, the file is permanently deleted.\r\n\r\nWhen `StoreFile` is set to `False`, conversion happens entirely in-memory. The raw file bytes are streamed back in the API response without touching disk or external storage, ensuring maximum security and zero persistence so that only you can access the content.\r\n",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Store file",
+                "x-ca-group": "Output",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "File": {
+                "type": "string",
+                "description": "File to be converted. Value can be URL or file content.",
+                "format": "binary",
+                "x-ca-featured": true,
+                "x-ca-label": "File",
+                "x-ca-group": "Input",
+                "x-ca-type": "File",
+                "x-ca-representation": "Default",
+                "x-ca-allowed-extensions": [
+                  "pdf"
+                ]
+              },
+              "FileName": {
+                "type": "string",
+                "description": "The `FileName` property defines the name of the output file(s) generated by the file conversion API, ensuring safe and\r\nunique file naming. It sanitizes input filenames to remove potentially harmful characters, automatically appends the\r\ncorrect file extension based on the target format, and includes an indexing feature to distinguish multiple output files\r\nfrom a single input. For example, converting `report.docx` to PDF format might result in `report.pdf` for a single file,\r\nor `report_0.pdf`, `report_1.pdf` for multiple files, ensuring each output file is uniquely identifiable.",
+                "x-ca-featured": false,
+                "x-ca-label": "Output file name",
+                "x-ca-group": "Output",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "1",
+                  "to": "200"
+                }
+              },
+              "Password": {
+                "type": "string",
+                "description": "Sets the password to open protected PDF.",
+                "x-ca-featured": false,
+                "x-ca-label": "Open password",
+                "x-ca-group": "Input",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default"
+              },
+              "PageRange": {
+                "type": "string",
+                "description": "Set PDF page range to convert. Example 1-10 or 1,2,5.",
+                "default": "1-2000",
+                "x-ca-featured": false,
+                "x-ca-label": "Page Range",
+                "x-ca-group": "PDF",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "1",
+                  "to": "2000"
+                }
+              },
+              "Rotate": {
+                "enum": [
+                  "default",
+                  "none",
+                  "rotate90",
+                  "rotate180",
+                  "rotate270"
+                ],
+                "type": "string",
+                "description": "Set PDF page rotation before converting to image.",
+                "default": "default",
+                "x-ca-featured": false,
+                "x-ca-label": "Rotate page",
+                "x-ca-group": "PDF",
+                "x-ca-type": "Collection",
+                "x-ca-representation": "Dropdown",
+                "x-ca-values": {
+                  "default": "Default",
+                  "none": "None",
+                  "rotate90": "Rotate 90",
+                  "rotate180": "Rotate 180",
+                  "rotate270": "Rotate 270"
+                }
+              },
+              "CropTo": {
+                "enum": [
+                  "BoundingBox",
+                  "TrimBox",
+                  "MediaBox",
+                  "ArtBox",
+                  "BleedBox"
+                ],
+                "type": "string",
+                "description": "Defines the options for cropping the page.",
+                "default": "BoundingBox",
+                "x-ca-featured": false,
+                "x-ca-label": "Crop to box",
+                "x-ca-group": "PDF",
+                "x-ca-type": "Collection",
+                "x-ca-representation": "Dropdown",
+                "x-ca-values": {
+                  "BoundingBox": "Bounding Box",
+                  "TrimBox": "Trim Box",
+                  "MediaBox": "Media Box",
+                  "ArtBox": "Art Box",
+                  "BleedBox": "Bleed Box"
+                }
+              },
+              "ImageResolution": {
+                "maximum": 800,
+                "minimum": 10,
+                "type": "integer",
+                "description": "Set output image resolution in dpi.",
+                "default": 200,
+                "x-ca-featured": false,
+                "x-ca-label": "Image resolution",
+                "x-ca-group": "JPG Output",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "10",
+                  "to": "800"
+                }
+              },
+              "Scale": {
+                "maximum": 300,
+                "minimum": 10,
+                "type": "integer",
+                "description": "Scale.md.",
+                "x-ca-featured": false,
+                "x-ca-label": "Scale image",
+                "x-ca-group": "JPG Output",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "10",
+                  "to": "300"
+                }
+              },
+              "ImageHeight": {
+                "maximum": 10000,
+                "minimum": 10,
+                "type": "integer",
+                "description": "Image height in pixels.",
+                "x-ca-featured": false,
+                "x-ca-label": "Image height",
+                "x-ca-group": "JPG Output",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "10",
+                  "to": "10000"
+                }
+              },
+              "ImageWidth": {
+                "maximum": 10000,
+                "minimum": 10,
+                "type": "integer",
+                "description": "Image width in pixels.",
+                "x-ca-featured": false,
+                "x-ca-label": "Image width",
+                "x-ca-group": "JPG Output",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "10",
+                  "to": "10000"
+                }
+              },
+              "FitToSize": {
+                "type": "boolean",
+                "description": "Gets or sets whether to scale the output image to fit within both ImageWidth and ImageHeight while maintaining the aspect ratio. When enabled, the image is sized to fit the more restrictive dimension. Requires both width and height to be specified.",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Fit to size",
+                "x-ca-group": "JPG Output",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "BackgroundColor": {
+                "type": "string",
+                "description": "Applies a color to the transparent PDF background, thereby setting the background color of the generated images. You can specify a color name (e.g. `white` or `black`), or use color codes such as RGB (e.g. `255,0,0`) or HEX (e.g. `#FF0000`). To preserve transparency, set the property value to `transparent`.",
+                "x-ca-featured": false,
+                "x-ca-label": "Background Color",
+                "x-ca-group": "JPG Output",
+                "x-ca-type": "Color",
+                "x-ca-representation": "Default"
+              },
+              "ImageQuality": {
+                "maximum": 100,
+                "minimum": 10,
+                "type": "integer",
+                "description": "Set output image quality.",
+                "default": 75,
+                "x-ca-featured": false,
+                "x-ca-label": "Output image quality",
+                "x-ca-group": "JPG Output",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "10",
+                  "to": "100"
+                }
+              },
+              "ColorSpace": {
+                "enum": [
+                  "rgb",
+                  "cmyk",
+                  "gray",
+                  "monochrome"
+                ],
+                "type": "string",
+                "description": "Set image color space.",
+                "default": "rgb",
+                "x-ca-featured": false,
+                "x-ca-label": "Image color space",
+                "x-ca-group": "JPG Output",
+                "x-ca-type": "Collection",
+                "x-ca-representation": "Dropdown",
+                "x-ca-values": {
+                  "rgb": "RGB",
+                  "cmyk": "CMYK",
+                  "gray": "Gray",
+                  "monochrome": "Monochrome"
+                }
+              },
+              "BitDepth": {
+                "enum": [
+                  "default",
+                  "1",
+                  "2",
+                  "4",
+                  "8",
+                  "16"
+                ],
+                "type": "string",
+                "description": "Set the number of bits per color channel in the output image. Higher values improve color precision and gradient smoothness but increase file size.",
+                "default": "default",
+                "x-ca-featured": false,
+                "x-ca-label": "Bit depth",
+                "x-ca-group": "JPG Output",
+                "x-ca-type": "Collection",
+                "x-ca-representation": "Dropdown",
+                "x-ca-values": {
+                  "default": "Default",
+                  "1": "1 bit",
+                  "2": "2 bits",
+                  "4": "4 bits",
+                  "8": "8 bits",
+                  "16": "16 bits"
+                }
+              },
+              "CompressionLevel": {
+                "maximum": 9,
+                "minimum": 0,
+                "type": "integer",
+                "description": "Define the compression level (0\u20139). A higher value increases compression, reducing file size. For lossy formats (JPG), this decreases image quality; for lossless formats (PNG), it increases compression strength without affecting quality.",
+                "x-ca-featured": false,
+                "x-ca-label": "Compression level",
+                "x-ca-group": "JPG Output",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "0",
+                  "to": "9"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "ConversionCost": {
+                  "type": "integer",
+                  "description": "This amount will be deducted from your balance after the conversion.",
+                  "format": "int32",
+                  "example": 1
+                },
+                "Files": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "FileName": {
+                        "type": "string",
+                        "description": "Name of the converted file.",
+                        "example": "myfile.pdf"
+                      },
+                      "FileExt": {
+                        "type": "string",
+                        "description": "File type (file name extension)",
+                        "example": "pdf"
+                      },
+                      "FileSize": {
+                        "type": "integer",
+                        "description": "File size",
+                        "format": "int32",
+                        "example": 111955
+                      },
+                      "FileId": {
+                        "type": "string",
+                        "description": "File ID",
+                        "example": "25811safe8e61dd3f51ef00ee5f58b92"
+                      },
+                      "Url": {
+                        "type": "string",
+                        "description": "File URL",
+                        "example": "https://v2.convertapi.com/d/v01plsb72o0cmdooq90w4d1lnqsf6oy4/myfile.pdf"
+                      },
+                      "FileData": {
+                        "type": "string",
+                        "description": "Base64 encoded file data",
+                        "format": "base64",
+                        "example": "JVBERi0xLjcKJb662+4KMSAwIG9iago8PC9UeXBlIC9DYXRhbG9n..."
+                      }
+                    }
+                  }
+                }
+              },
+              "externalDocs": {
+                "url": "https://www.convertapi.com/doc/content-types#applicationjson-1"
+              }
+            }
+          },
+          "multipart/mixed": {
+            "schema": {
+              "type": "string",
+              "format": "binary",
+              "externalDocs": {
+                "url": "https://www.convertapi.com/doc/content-types#multipartmixed"
+              }
+            },
+            "example": "--43cf1475-ab15-4c6b-b5ee-e2cbcedfe92f\nConversionCost: 1\nContent-Type: application/octet-stream\nContent-Disposition: attachment; filename=\"my_file.pdf\"; size=8475\n\n--FILE CONTENT--\n--43cf1475-ab15-4c6b-b5ee-e2cbcedfe92f--\n"
+          },
+          "application/octet-stream": {
+            "schema": {
+              "type": "string",
+              "format": "binary",
+              "externalDocs": {
+                "url": "https://www.convertapi.com/doc/content-types#applicationoctet-stream-1"
+              }
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "",
+        "content": {}
+      },
+      "401": {
+        "description": "",
+        "content": {}
+      },
+      "415": {
+        "description": "",
+        "content": {}
+      },
+      "500": {
+        "description": "",
+        "content": {}
+      },
+      "503": {
+        "description": "",
+        "content": {}
+      }
+    }
+  },
+  "POST /convert/docx/to/pdf": {
+    "path": "/convert/docx/to/pdf",
+    "method": "POST",
+    "summary": "",
+    "description": "",
+    "parameters": [],
+    "tags": [
+      "Conversion"
+    ],
+    "requestBody": {
+      "content": {
+        "multipart/form-data": {
+          "schema": {
+            "required": [
+              "File"
+            ],
+            "type": "object",
+            "properties": {
+              "Timeout": {
+                "maximum": 1200,
+                "minimum": 10,
+                "type": "integer",
+                "description": "Conversion timeout in seconds.",
+                "default": 900,
+                "x-ca-featured": false,
+                "x-ca-label": "Timeout",
+                "x-ca-group": "Execution",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "10",
+                  "to": "1200"
+                }
+              },
+              "StoreFile": {
+                "type": "boolean",
+                "description": "When the `StoreFile` parameter is set to `True`, your converted file is written to ConvertAPI\u2019s encrypted, temporary storage and made available via a time-limited secure download URL, valid for up to 3 hours. After this period, the file is permanently deleted.\r\n\r\nWhen `StoreFile` is set to `False`, conversion happens entirely in-memory. The raw file bytes are streamed back in the API response without touching disk or external storage, ensuring maximum security and zero persistence so that only you can access the content.\r\n",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Store file",
+                "x-ca-group": "Output",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "File": {
+                "type": "string",
+                "description": "File to be converted. Value can be URL or file content.",
+                "format": "binary",
+                "x-ca-featured": true,
+                "x-ca-label": "File",
+                "x-ca-group": "Input",
+                "x-ca-type": "File",
+                "x-ca-representation": "Default",
+                "x-ca-allowed-extensions": [
+                  "doc",
+                  "docx"
+                ]
+              },
+              "FileName": {
+                "type": "string",
+                "description": "The `FileName` property defines the name of the output file(s) generated by the file conversion API, ensuring safe and\r\nunique file naming. It sanitizes input filenames to remove potentially harmful characters, automatically appends the\r\ncorrect file extension based on the target format, and includes an indexing feature to distinguish multiple output files\r\nfrom a single input. For example, converting `report.docx` to PDF format might result in `report.pdf` for a single file,\r\nor `report_0.pdf`, `report_1.pdf` for multiple files, ensuring each output file is uniquely identifiable.",
+                "x-ca-featured": false,
+                "x-ca-label": "Output file name",
+                "x-ca-group": "Output",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "1",
+                  "to": "200"
+                }
+              },
+              "Password": {
+                "type": "string",
+                "description": "Sets the password to open protected documents.",
+                "x-ca-featured": false,
+                "x-ca-label": "Open Password",
+                "x-ca-group": "Word",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default"
+              },
+              "PageRange": {
+                "type": "string",
+                "description": "Set page range. Example 1-10.",
+                "default": "1-6000",
+                "x-ca-featured": false,
+                "x-ca-label": "Page Range",
+                "x-ca-group": "Word",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "1",
+                  "to": "6000"
+                }
+              },
+              "ConvertMarkups": {
+                "type": "boolean",
+                "description": "Convert document markups like revisions and comments.",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Convert markups",
+                "x-ca-group": "Word",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "ConvertTags": {
+                "type": "boolean",
+                "description": "Convert document structure tags for accessibility.",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Convert accessibility tags",
+                "x-ca-group": "Word",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "ConvertMetadata": {
+                "type": "boolean",
+                "description": "Convert document metadata like Title, Author, Keywords to PDF metadata.",
+                "default": true,
+                "x-ca-featured": false,
+                "x-ca-label": "Convert metadata",
+                "x-ca-group": "Word",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "BookmarkMode": {
+                "enum": [
+                  "none",
+                  "headings",
+                  "bookmarks"
+                ],
+                "type": "string",
+                "description": "Specifies how bookmarks are created in the generated PDF: `None` disables bookmark creation, `Headings` generates bookmarks based on document headings, and `Bookmarks` uses existing bookmarks defined in the original file.",
+                "default": "headings",
+                "x-ca-featured": false,
+                "x-ca-label": "Bookmark Mode",
+                "x-ca-group": "Word",
+                "x-ca-type": "Collection",
+                "x-ca-representation": "Dropdown",
+                "x-ca-values": {
+                  "none": "None",
+                  "headings": "Headings",
+                  "bookmarks": "Bookmarks"
+                }
+              },
+              "UpdateToc": {
+                "type": "boolean",
+                "description": "Update all tables of content in the document.",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Update tables of content",
+                "x-ca-group": "Word",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "Pdfa": {
+                "type": "boolean",
+                "description": "Create PDF/A-3a compliant document.",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Create PDF/A",
+                "x-ca-group": "PDF Output",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "ConversionCost": {
+                  "type": "integer",
+                  "description": "This amount will be deducted from your balance after the conversion.",
+                  "format": "int32",
+                  "example": 1
+                },
+                "Files": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "FileName": {
+                        "type": "string",
+                        "description": "Name of the converted file.",
+                        "example": "myfile.pdf"
+                      },
+                      "FileExt": {
+                        "type": "string",
+                        "description": "File type (file name extension)",
+                        "example": "pdf"
+                      },
+                      "FileSize": {
+                        "type": "integer",
+                        "description": "File size",
+                        "format": "int32",
+                        "example": 111955
+                      },
+                      "FileId": {
+                        "type": "string",
+                        "description": "File ID",
+                        "example": "25811safe8e61dd3f51ef00ee5f58b92"
+                      },
+                      "Url": {
+                        "type": "string",
+                        "description": "File URL",
+                        "example": "https://v2.convertapi.com/d/v01plsb72o0cmdooq90w4d1lnqsf6oy4/myfile.pdf"
+                      },
+                      "FileData": {
+                        "type": "string",
+                        "description": "Base64 encoded file data",
+                        "format": "base64",
+                        "example": "JVBERi0xLjcKJb662+4KMSAwIG9iago8PC9UeXBlIC9DYXRhbG9n..."
+                      }
+                    }
+                  }
+                }
+              },
+              "externalDocs": {
+                "url": "https://www.convertapi.com/doc/content-types#applicationjson-1"
+              }
+            }
+          },
+          "multipart/mixed": {
+            "schema": {
+              "type": "string",
+              "format": "binary",
+              "externalDocs": {
+                "url": "https://www.convertapi.com/doc/content-types#multipartmixed"
+              }
+            },
+            "example": "--43cf1475-ab15-4c6b-b5ee-e2cbcedfe92f\nConversionCost: 1\nContent-Type: application/octet-stream\nContent-Disposition: attachment; filename=\"my_file.pdf\"; size=8475\n\n--FILE CONTENT--\n--43cf1475-ab15-4c6b-b5ee-e2cbcedfe92f--\n"
+          },
+          "application/octet-stream": {
+            "schema": {
+              "type": "string",
+              "format": "binary",
+              "externalDocs": {
+                "url": "https://www.convertapi.com/doc/content-types#applicationoctet-stream-1"
+              }
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "",
+        "content": {}
+      },
+      "401": {
+        "description": "",
+        "content": {}
+      },
+      "415": {
+        "description": "",
+        "content": {}
+      },
+      "500": {
+        "description": "",
+        "content": {}
+      },
+      "503": {
+        "description": "",
+        "content": {}
+      }
+    }
+  },
+  "POST /convert/jpg/to/pdf": {
+    "path": "/convert/jpg/to/pdf",
+    "method": "POST",
+    "summary": "",
+    "description": "",
+    "parameters": [],
+    "tags": [
+      "Conversion"
+    ],
+    "requestBody": {
+      "content": {
+        "multipart/form-data": {
+          "schema": {
+            "required": [
+              "File"
+            ],
+            "type": "object",
+            "properties": {
+              "Timeout": {
+                "maximum": 1200,
+                "minimum": 10,
+                "type": "integer",
+                "description": "Conversion timeout in seconds.",
+                "default": 900,
+                "x-ca-featured": false,
+                "x-ca-label": "Timeout",
+                "x-ca-group": "Execution",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "10",
+                  "to": "1200"
+                }
+              },
+              "StoreFile": {
+                "type": "boolean",
+                "description": "When the `StoreFile` parameter is set to `True`, your converted file is written to ConvertAPI\u2019s encrypted, temporary storage and made available via a time-limited secure download URL, valid for up to 3 hours. After this period, the file is permanently deleted.\r\n\r\nWhen `StoreFile` is set to `False`, conversion happens entirely in-memory. The raw file bytes are streamed back in the API response without touching disk or external storage, ensuring maximum security and zero persistence so that only you can access the content.\r\n",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Store file",
+                "x-ca-group": "Output",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "File": {
+                "type": "string",
+                "description": "File to be converted. Value can be URL or file content.",
+                "format": "binary",
+                "x-ca-featured": true,
+                "x-ca-label": "File",
+                "x-ca-group": "Input",
+                "x-ca-type": "File",
+                "x-ca-representation": "Default",
+                "x-ca-allowed-extensions": [
+                  "jpg",
+                  "jpeg",
+                  "jfif"
+                ]
+              },
+              "FileName": {
+                "type": "string",
+                "description": "The `FileName` property defines the name of the output file(s) generated by the file conversion API, ensuring safe and\r\nunique file naming. It sanitizes input filenames to remove potentially harmful characters, automatically appends the\r\ncorrect file extension based on the target format, and includes an indexing feature to distinguish multiple output files\r\nfrom a single input. For example, converting `report.docx` to PDF format might result in `report.pdf` for a single file,\r\nor `report_0.pdf`, `report_1.pdf` for multiple files, ensuring each output file is uniquely identifiable.",
+                "x-ca-featured": false,
+                "x-ca-label": "Output file name",
+                "x-ca-group": "Output",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "1",
+                  "to": "200"
+                }
+              },
+              "Rotate": {
+                "maximum": 360,
+                "minimum": -360,
+                "type": "integer",
+                "description": "Rotate the image by a specified degree. For automatic rotation using EXIF data in TIFF and JPEG images, leave this property empty.",
+                "x-ca-featured": false,
+                "x-ca-label": "Rotate image",
+                "x-ca-group": "Image",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "-360",
+                  "to": "360"
+                }
+              },
+              "ColorSpace": {
+                "enum": [
+                  "default",
+                  "rgb",
+                  "srgb",
+                  "cmyk",
+                  "gray"
+                ],
+                "type": "string",
+                "description": "Set image color space.",
+                "default": "default",
+                "x-ca-featured": false,
+                "x-ca-label": "Image color space",
+                "x-ca-group": "Image",
+                "x-ca-type": "Collection",
+                "x-ca-representation": "Dropdown",
+                "x-ca-values": {
+                  "default": "Default",
+                  "rgb": "RGB",
+                  "srgb": "sRGB",
+                  "cmyk": "CMYK",
+                  "gray": "Gray"
+                }
+              },
+              "ColorProfile": {
+                "enum": [
+                  "default",
+                  "isocoatedv2"
+                ],
+                "type": "string",
+                "description": "Set image color profile. Some profiles will override the ColorSpace property.",
+                "default": "default",
+                "x-ca-featured": false,
+                "x-ca-label": "Image color profile",
+                "x-ca-group": "Image",
+                "x-ca-type": "Collection",
+                "x-ca-representation": "Dropdown",
+                "x-ca-values": {
+                  "default": "Default",
+                  "isocoatedv2": "ISO Coated v2"
+                }
+              },
+              "MarginHorizontal": {
+                "maximum": 500,
+                "minimum": 0,
+                "type": "integer",
+                "description": "Set the page horizontal margin in millimeters (mm).",
+                "default": 0,
+                "x-ca-featured": false,
+                "x-ca-label": "Horizontal margin",
+                "x-ca-group": "Page Options",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "0",
+                  "to": "500"
+                }
+              },
+              "MarginVertical": {
+                "maximum": 500,
+                "minimum": 0,
+                "type": "integer",
+                "description": "Set the page vertical margin in millimeters (mm).",
+                "default": 0,
+                "x-ca-featured": false,
+                "x-ca-label": "Vertical margin",
+                "x-ca-group": "Page Options",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "0",
+                  "to": "500"
+                }
+              },
+              "PageSize": {
+                "enum": [
+                  "default",
+                  "a0",
+                  "a1",
+                  "a2",
+                  "a3",
+                  "a4",
+                  "a5",
+                  "a6",
+                  "a7",
+                  "a8",
+                  "a9",
+                  "a10",
+                  "letter",
+                  "legal"
+                ],
+                "type": "string",
+                "description": "The property scales each image to fit a given page size.",
+                "default": "default",
+                "x-ca-featured": false,
+                "x-ca-label": "Page size",
+                "x-ca-group": "Page Options",
+                "x-ca-type": "Collection",
+                "x-ca-representation": "Dropdown",
+                "x-ca-values": {
+                  "default": "Image size",
+                  "a0": "A0",
+                  "a1": "A1",
+                  "a2": "A2",
+                  "a3": "A3",
+                  "a4": "A4",
+                  "a5": "A5",
+                  "a6": "A6",
+                  "a7": "A7",
+                  "a8": "A8",
+                  "a9": "A9",
+                  "a10": "A10",
+                  "letter": "Letter",
+                  "legal": "Legal"
+                }
+              },
+              "PageOrientation": {
+                "enum": [
+                  "default",
+                  "portrait",
+                  "landscape"
+                ],
+                "type": "string",
+                "description": "Set page orientation. Works only with the PageSize property when it is set to a value other than the Image size.",
+                "default": "default",
+                "x-ca-featured": false,
+                "x-ca-label": "Page orientation",
+                "x-ca-group": "Page Options",
+                "x-ca-type": "Collection",
+                "x-ca-representation": "Dropdown",
+                "x-ca-values": {
+                  "default": "Image orientation",
+                  "portrait": "Portrait",
+                  "landscape": "Landscape"
+                }
+              },
+              "Pdfa": {
+                "type": "boolean",
+                "description": "Create PDF/A-1b compliant document.",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Create PDF/A",
+                "x-ca-group": "PDF Output",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "ConversionCost": {
+                  "type": "integer",
+                  "description": "This amount will be deducted from your balance after the conversion.",
+                  "format": "int32",
+                  "example": 1
+                },
+                "Files": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "FileName": {
+                        "type": "string",
+                        "description": "Name of the converted file.",
+                        "example": "myfile.pdf"
+                      },
+                      "FileExt": {
+                        "type": "string",
+                        "description": "File type (file name extension)",
+                        "example": "pdf"
+                      },
+                      "FileSize": {
+                        "type": "integer",
+                        "description": "File size",
+                        "format": "int32",
+                        "example": 111955
+                      },
+                      "FileId": {
+                        "type": "string",
+                        "description": "File ID",
+                        "example": "25811safe8e61dd3f51ef00ee5f58b92"
+                      },
+                      "Url": {
+                        "type": "string",
+                        "description": "File URL",
+                        "example": "https://v2.convertapi.com/d/v01plsb72o0cmdooq90w4d1lnqsf6oy4/myfile.pdf"
+                      },
+                      "FileData": {
+                        "type": "string",
+                        "description": "Base64 encoded file data",
+                        "format": "base64",
+                        "example": "JVBERi0xLjcKJb662+4KMSAwIG9iago8PC9UeXBlIC9DYXRhbG9n..."
+                      }
+                    }
+                  }
+                }
+              },
+              "externalDocs": {
+                "url": "https://www.convertapi.com/doc/content-types#applicationjson-1"
+              }
+            }
+          },
+          "multipart/mixed": {
+            "schema": {
+              "type": "string",
+              "format": "binary",
+              "externalDocs": {
+                "url": "https://www.convertapi.com/doc/content-types#multipartmixed"
+              }
+            },
+            "example": "--43cf1475-ab15-4c6b-b5ee-e2cbcedfe92f\nConversionCost: 1\nContent-Type: application/octet-stream\nContent-Disposition: attachment; filename=\"my_file.pdf\"; size=8475\n\n--FILE CONTENT--\n--43cf1475-ab15-4c6b-b5ee-e2cbcedfe92f--\n"
+          },
+          "application/octet-stream": {
+            "schema": {
+              "type": "string",
+              "format": "binary",
+              "externalDocs": {
+                "url": "https://www.convertapi.com/doc/content-types#applicationoctet-stream-1"
+              }
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "",
+        "content": {}
+      },
+      "401": {
+        "description": "",
+        "content": {}
+      },
+      "415": {
+        "description": "",
+        "content": {}
+      },
+      "500": {
+        "description": "",
+        "content": {}
+      },
+      "503": {
+        "description": "",
+        "content": {}
+      }
+    }
+  },
+  "POST /convert/html/to/pdf": {
+    "path": "/convert/html/to/pdf",
+    "method": "POST",
+    "summary": "",
+    "description": "",
+    "parameters": [],
+    "tags": [
+      "Conversion"
+    ],
+    "requestBody": {
+      "content": {
+        "multipart/form-data": {
+          "schema": {
+            "required": [
+              "File"
+            ],
+            "type": "object",
+            "properties": {
+              "StoreFile": {
+                "type": "boolean",
+                "description": "When the `StoreFile` parameter is set to `True`, your converted file is written to ConvertAPI\u2019s encrypted, temporary storage and made available via a time-limited secure download URL, valid for up to 3 hours. After this period, the file is permanently deleted.\r\n\r\nWhen `StoreFile` is set to `False`, conversion happens entirely in-memory. The raw file bytes are streamed back in the API response without touching disk or external storage, ensuring maximum security and zero persistence so that only you can access the content.\r\n",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Store file",
+                "x-ca-group": "Output",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "FileName": {
+                "type": "string",
+                "description": "The `FileName` property defines the name of the output file(s) generated by the file conversion API, ensuring safe and\r\nunique file naming. It sanitizes input filenames to remove potentially harmful characters, automatically appends the\r\ncorrect file extension based on the target format, and includes an indexing feature to distinguish multiple output files\r\nfrom a single input. For example, converting `report.docx` to PDF format might result in `report.pdf` for a single file,\r\nor `report_0.pdf`, `report_1.pdf` for multiple files, ensuring each output file is uniquely identifiable.",
+                "x-ca-featured": false,
+                "x-ca-label": "Output file name",
+                "x-ca-group": "Output",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "1",
+                  "to": "200"
+                }
+              },
+              "Timeout": {
+                "maximum": 1200,
+                "minimum": 10,
+                "type": "integer",
+                "description": "Conversion timeout in seconds.",
+                "default": 120,
+                "x-ca-featured": false,
+                "x-ca-label": "Timeout",
+                "x-ca-group": "Execution",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "10",
+                  "to": "1200"
+                }
+              },
+              "ConversionDelay": {
+                "maximum": 30,
+                "minimum": 0,
+                "type": "integer",
+                "description": "Delay in seconds before page load and PDF creation. Sometimes useful to let web page fully load.",
+                "default": 0,
+                "x-ca-featured": false,
+                "x-ca-label": "Conversion delay",
+                "x-ca-group": "Web Rendering",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "0",
+                  "to": "30"
+                }
+              },
+              "Version": {
+                "enum": [
+                  "latest",
+                  "146",
+                  "147",
+                  "148"
+                ],
+                "type": "string",
+                "description": "Specify a particular version of the Chromium engine to render the web page.",
+                "default": "148",
+                "x-ca-featured": false,
+                "x-ca-label": "Chromium Version",
+                "x-ca-group": "Web Rendering",
+                "x-ca-type": "Collection",
+                "x-ca-representation": "Dropdown",
+                "x-ca-values": {
+                  "latest": "Latest (148)",
+                  "146": "146",
+                  "147": "147",
+                  "148": "148"
+                }
+              },
+              "AuthUsername": {
+                "type": "string",
+                "description": "HTTP authentication username. Could be used if conversion web page is protected with HTTP authentication.",
+                "x-ca-featured": false,
+                "x-ca-label": "Authentication username",
+                "x-ca-group": "Request",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default"
+              },
+              "AuthPassword": {
+                "type": "string",
+                "description": "HTTP authentication password. Could be used if conversion web page is protected with HTTP authentication.",
+                "x-ca-featured": false,
+                "x-ca-label": "Authentication password",
+                "x-ca-group": "Request",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default"
+              },
+              "AdBlock": {
+                "type": "boolean",
+                "description": "Block ads in converting page.",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Ad block",
+                "x-ca-group": "Web Rendering",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "CookieConsentBlock": {
+                "type": "boolean",
+                "description": "Tries to remove EU regulation required cookie warnings from web pages.",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Remove cookie warnings",
+                "x-ca-group": "Web Rendering",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "Cookies": {
+                "type": "string",
+                "description": "Set additional cookies for the page request. Example: cookiename1=cookievalue1; cookiename2=cookievalue2; cookiename3=cookievalue3",
+                "x-ca-featured": false,
+                "x-ca-label": "Cookies for the page request",
+                "x-ca-group": "Request",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default"
+              },
+              "JavaScript": {
+                "type": "boolean",
+                "description": "Allow web pages to run JavaScript.",
+                "default": true,
+                "x-ca-featured": false,
+                "x-ca-label": "Enable JavaScript",
+                "x-ca-group": "Web Rendering",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "WaitElement": {
+                "type": "string",
+                "description": "Element selector string of the DOM element. Converter will wait for this element to appear in DOM before conversion begins.",
+                "x-ca-featured": false,
+                "x-ca-label": "Wait for DOM element",
+                "x-ca-group": "Web Rendering",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default"
+              },
+              "UserJs": {
+                "type": "string",
+                "description": "Execute provided JavaScript before conversion begins.",
+                "x-ca-featured": false,
+                "x-ca-label": "Execute JavaScript",
+                "x-ca-group": "Web Rendering",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default"
+              },
+              "UserCss": {
+                "type": "string",
+                "description": "Apply additional CSS before conversion begins.",
+                "x-ca-featured": false,
+                "x-ca-label": "Apply additional CSS",
+                "x-ca-group": "Web Rendering",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default"
+              },
+              "HideElements": {
+                "type": "string",
+                "description": "Element selector string of the DOM elements that needs to be hidden during conversion.",
+                "x-ca-featured": false,
+                "x-ca-label": "Hide DOM elements",
+                "x-ca-group": "Web Rendering",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default"
+              },
+              "CssMediaType": {
+                "type": "string",
+                "description": "Use CSS media type in conversion process. The default screen and print media types are supported but not limited to these. The custom media type, like convertapi can be used too.",
+                "default": "screen",
+                "x-ca-featured": false,
+                "x-ca-label": "CSS media type",
+                "x-ca-group": "Web Rendering",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default"
+              },
+              "Headers": {
+                "type": "string",
+                "description": "Set custom HTTP headers to include in the request. Format: `Header1:Value1|Header2:Value2|Header3:Value3`\r\n\r\n- Each header is separated by `|`.\r\n- Each name/value pair is separated by `:`.",
+                "x-ca-featured": false,
+                "x-ca-label": "Custom Headers",
+                "x-ca-group": "Web Rendering",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default"
+              },
+              "LoadLazyContent": {
+                "type": "boolean",
+                "description": "Load page images that loads only when they are visible.",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Load lazy content",
+                "x-ca-group": "Web Rendering",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "ViewportWidth": {
+                "maximum": 4000,
+                "minimum": 200,
+                "type": "integer",
+                "description": "Sets browser viewport width.",
+                "default": 1366,
+                "x-ca-featured": false,
+                "x-ca-label": "Viewport width",
+                "x-ca-group": "Web Rendering",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "200",
+                  "to": "4000"
+                }
+              },
+              "ViewportHeight": {
+                "maximum": 4000,
+                "minimum": 200,
+                "type": "integer",
+                "description": "Sets browser viewport height.",
+                "default": 1024,
+                "x-ca-featured": false,
+                "x-ca-label": "Viewport height",
+                "x-ca-group": "Web Rendering",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "200",
+                  "to": "4000"
+                }
+              },
+              "RespectViewport": {
+                "type": "boolean",
+                "description": "If true, the converter will generate PDF as the content looks like in the browser. If is set to false, the converter acts like Chrome print to PDF function.",
+                "default": true,
+                "x-ca-featured": false,
+                "x-ca-label": "Respect viewport",
+                "x-ca-group": "Page Options",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "Scale": {
+                "maximum": 200,
+                "minimum": 10,
+                "type": "integer",
+                "description": "Set web page scale value in percentage.",
+                "default": 100,
+                "x-ca-featured": false,
+                "x-ca-label": "Scale Content",
+                "x-ca-group": "Page Options",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "10",
+                  "to": "200"
+                }
+              },
+              "PageOrientation": {
+                "enum": [
+                  "portrait",
+                  "landscape"
+                ],
+                "type": "string",
+                "description": "PDF page orientation.",
+                "default": "portrait",
+                "x-ca-featured": false,
+                "x-ca-label": "Page orientation",
+                "x-ca-group": "Page Options",
+                "x-ca-type": "Collection",
+                "x-ca-representation": "Dropdown",
+                "x-ca-values": {
+                  "portrait": "Portrait",
+                  "landscape": "Landscape"
+                }
+              },
+              "PageSize": {
+                "enum": [
+                  "a0",
+                  "a1",
+                  "a2",
+                  "a3",
+                  "a4",
+                  "a5",
+                  "a6",
+                  "a7",
+                  "a8",
+                  "a9",
+                  "b0",
+                  "b1",
+                  "b2",
+                  "b3",
+                  "b4",
+                  "b5",
+                  "letter",
+                  "legal",
+                  "ledger"
+                ],
+                "type": "string",
+                "description": "PDF page size.",
+                "default": "letter",
+                "x-ca-featured": false,
+                "x-ca-label": "Page size",
+                "x-ca-group": "Page Options",
+                "x-ca-type": "Collection",
+                "x-ca-representation": "Dropdown",
+                "x-ca-values": {
+                  "a0": "A0",
+                  "a1": "A1",
+                  "a2": "A2",
+                  "a3": "A3",
+                  "a4": "A4",
+                  "a5": "A5",
+                  "a6": "A6",
+                  "a7": "A7",
+                  "a8": "A8",
+                  "a9": "A9",
+                  "b0": "B0",
+                  "b1": "B1",
+                  "b2": "B2",
+                  "b3": "B3",
+                  "b4": "B4",
+                  "b5": "B5",
+                  "letter": "Letter",
+                  "legal": "Legal",
+                  "ledger": "Ledger"
+                }
+              },
+              "PageWidth": {
+                "maximum": 30000,
+                "minimum": 10,
+                "type": "integer",
+                "description": "Custom page width in millimeters (mm). This option override PageSize option.",
+                "x-ca-featured": false,
+                "x-ca-label": "Page width",
+                "x-ca-group": "PDF Output",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "10",
+                  "to": "30000"
+                }
+              },
+              "PageHeight": {
+                "maximum": 30000,
+                "minimum": 10,
+                "type": "integer",
+                "description": "Custom page height in millimeters (mm). This option override PageSize option.",
+                "x-ca-featured": false,
+                "x-ca-label": "Page height",
+                "x-ca-group": "PDF Output",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "10",
+                  "to": "30000"
+                }
+              },
+              "MarginTop": {
+                "maximum": 500,
+                "minimum": 0,
+                "type": "integer",
+                "description": "Set the page top margin in millimeters (mm).",
+                "default": 10,
+                "x-ca-featured": false,
+                "x-ca-label": "Margin top",
+                "x-ca-group": "Page Options",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "0",
+                  "to": "500"
+                }
+              },
+              "MarginRight": {
+                "maximum": 500,
+                "minimum": 0,
+                "type": "integer",
+                "description": "Set the page right margin in millimeters (mm).",
+                "default": 10,
+                "x-ca-featured": false,
+                "x-ca-label": "Margin right",
+                "x-ca-group": "Page Options",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "0",
+                  "to": "500"
+                }
+              },
+              "MarginBottom": {
+                "maximum": 500,
+                "minimum": 0,
+                "type": "integer",
+                "description": "Set the page bottom margin in millimeters (mm).",
+                "default": 10,
+                "x-ca-featured": false,
+                "x-ca-label": "Margin bottom",
+                "x-ca-group": "Page Options",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "0",
+                  "to": "500"
+                }
+              },
+              "MarginLeft": {
+                "maximum": 500,
+                "minimum": 0,
+                "type": "integer",
+                "description": "Set the page left margin in millimeters (mm).",
+                "default": 10,
+                "x-ca-featured": false,
+                "x-ca-label": "Margin left",
+                "x-ca-group": "Page Options",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "0",
+                  "to": "500"
+                }
+              },
+              "PageRange": {
+                "type": "string",
+                "description": "Set page range. Example 1-10 or 1,2,5.",
+                "default": "1-100",
+                "x-ca-featured": false,
+                "x-ca-label": "Page Range",
+                "x-ca-group": "Document",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "1",
+                  "to": "2000"
+                }
+              },
+              "Background": {
+                "type": "boolean",
+                "description": "Convert web page background.",
+                "default": true,
+                "x-ca-featured": false,
+                "x-ca-label": "Background",
+                "x-ca-group": "Web Rendering",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "FixedElements": {
+                "enum": [
+                  "fixed",
+                  "absolute",
+                  "relative",
+                  "hide"
+                ],
+                "type": "string",
+                "description": "Change fixed elements CSS 'position' property to adapt page for conversion.",
+                "default": "fixed",
+                "x-ca-featured": false,
+                "x-ca-label": "Fixed elements",
+                "x-ca-group": "Web Rendering",
+                "x-ca-type": "Collection",
+                "x-ca-representation": "Dropdown",
+                "x-ca-values": {
+                  "fixed": "Leave unchanged",
+                  "absolute": "Absolute",
+                  "relative": "Relative",
+                  "hide": "Hide"
+                }
+              },
+              "Header": {
+                "type": "string",
+                "description": "This property will insert an HTML header into each page. HTML tags containing the classes `pageNumber`, `totalPages`, `title`, and `date` will be filled in with the metadata relevant to each individual page. Inline CSS could be utilized to style the HTML provided.\r\n\r\n```html\r\n<style>\r\n    .right {\r\n        float: right;\r\n    }\r\n\r\n    .left {\r\n        float: left;\r\n    }\r\n</style>\r\n<span class='left'>\r\n    page number \r\n    <span class='pageNumber'></span>\r\n</span>\r\n<span class='right'>\r\n    date \r\n    <span class='date'></span>\r\n</span>\r\n```",
+                "x-ca-featured": false,
+                "x-ca-label": "Header HTML",
+                "x-ca-group": "Page Options",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default"
+              },
+              "Footer": {
+                "type": "string",
+                "description": "This property will insert an HTML footer into each page. HTML tags containing the classes `pageNumber`, `totalPages`, `title`, and `date` will be filled in with the metadata relevant to each individual page. Inline CSS could be utilized to style the HTML provided.\r\n\r\n```html\r\n<style>\r\n    .right {\r\n        float: right;\r\n    }\r\n\r\n    .left {\r\n        float: left;\r\n    }\r\n</style>\r\n<span class='left'>\r\n    page number \r\n    <span class='pageNumber'></span>\r\n</span>\r\n<span class='right'>\r\n    date \r\n    <span class='date'></span>\r\n</span>\r\n```",
+                "x-ca-featured": false,
+                "x-ca-label": "Footer HTML",
+                "x-ca-group": "Page Options",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default"
+              },
+              "ShowElements": {
+                "type": "string",
+                "description": "Element selector string of the DOM elements that should be visible during conversion. Other elements will be hidden.",
+                "x-ca-featured": false,
+                "x-ca-label": "Show DOM elements",
+                "x-ca-group": "Web Rendering",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default"
+              },
+              "AvoidBreakElements": {
+                "type": "string",
+                "description": "CSS selector for the elements that pages should not break.",
+                "x-ca-featured": false,
+                "x-ca-label": "Avoid page break inside DOM elements",
+                "x-ca-group": "Web Rendering",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default"
+              },
+              "BreakBeforeElements": {
+                "type": "string",
+                "description": "CSS selector for the elements that should apply page break before it.",
+                "x-ca-featured": false,
+                "x-ca-label": "Page break before DOM elements",
+                "x-ca-group": "Web Rendering",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default"
+              },
+              "BreakAfterElements": {
+                "type": "string",
+                "description": "CSS selector for the elements that should apply page break after it.",
+                "x-ca-featured": false,
+                "x-ca-label": "Page break after DOM elements",
+                "x-ca-group": "Web Rendering",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default"
+              },
+              "File": {
+                "type": "string",
+                "description": "File to be converted. Value can be URL or file content.",
+                "format": "binary",
+                "x-ca-featured": true,
+                "x-ca-label": "File",
+                "x-ca-group": "Input",
+                "x-ca-type": "File",
+                "x-ca-representation": "Default",
+                "x-ca-allowed-extensions": [
+                  "htm",
+                  "html"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "ConversionCost": {
+                  "type": "integer",
+                  "description": "This amount will be deducted from your balance after the conversion.",
+                  "format": "int32",
+                  "example": 1
+                },
+                "Files": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "FileName": {
+                        "type": "string",
+                        "description": "Name of the converted file.",
+                        "example": "myfile.pdf"
+                      },
+                      "FileExt": {
+                        "type": "string",
+                        "description": "File type (file name extension)",
+                        "example": "pdf"
+                      },
+                      "FileSize": {
+                        "type": "integer",
+                        "description": "File size",
+                        "format": "int32",
+                        "example": 111955
+                      },
+                      "FileId": {
+                        "type": "string",
+                        "description": "File ID",
+                        "example": "25811safe8e61dd3f51ef00ee5f58b92"
+                      },
+                      "Url": {
+                        "type": "string",
+                        "description": "File URL",
+                        "example": "https://v2.convertapi.com/d/v01plsb72o0cmdooq90w4d1lnqsf6oy4/myfile.pdf"
+                      },
+                      "FileData": {
+                        "type": "string",
+                        "description": "Base64 encoded file data",
+                        "format": "base64",
+                        "example": "JVBERi0xLjcKJb662+4KMSAwIG9iago8PC9UeXBlIC9DYXRhbG9n..."
+                      }
+                    }
+                  }
+                }
+              },
+              "externalDocs": {
+                "url": "https://www.convertapi.com/doc/content-types#applicationjson-1"
+              }
+            }
+          },
+          "multipart/mixed": {
+            "schema": {
+              "type": "string",
+              "format": "binary",
+              "externalDocs": {
+                "url": "https://www.convertapi.com/doc/content-types#multipartmixed"
+              }
+            },
+            "example": "--43cf1475-ab15-4c6b-b5ee-e2cbcedfe92f\nConversionCost: 1\nContent-Type: application/octet-stream\nContent-Disposition: attachment; filename=\"my_file.pdf\"; size=8475\n\n--FILE CONTENT--\n--43cf1475-ab15-4c6b-b5ee-e2cbcedfe92f--\n"
+          },
+          "application/octet-stream": {
+            "schema": {
+              "type": "string",
+              "format": "binary",
+              "externalDocs": {
+                "url": "https://www.convertapi.com/doc/content-types#applicationoctet-stream-1"
+              }
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "",
+        "content": {}
+      },
+      "401": {
+        "description": "",
+        "content": {}
+      },
+      "415": {
+        "description": "",
+        "content": {}
+      },
+      "500": {
+        "description": "",
+        "content": {}
+      },
+      "503": {
+        "description": "",
+        "content": {}
+      }
+    }
+  },
+  "POST /convert/xlsx/to/pdf": {
+    "path": "/convert/xlsx/to/pdf",
+    "method": "POST",
+    "summary": "",
+    "description": "",
+    "parameters": [],
+    "tags": [
+      "Conversion"
+    ],
+    "requestBody": {
+      "content": {
+        "multipart/form-data": {
+          "schema": {
+            "required": [
+              "File"
+            ],
+            "type": "object",
+            "properties": {
+              "Timeout": {
+                "maximum": 1200,
+                "minimum": 10,
+                "type": "integer",
+                "description": "Conversion timeout in seconds.",
+                "default": 900,
+                "x-ca-featured": false,
+                "x-ca-label": "Timeout",
+                "x-ca-group": "Execution",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "10",
+                  "to": "1200"
+                }
+              },
+              "StoreFile": {
+                "type": "boolean",
+                "description": "When the `StoreFile` parameter is set to `True`, your converted file is written to ConvertAPI\u2019s encrypted, temporary storage and made available via a time-limited secure download URL, valid for up to 3 hours. After this period, the file is permanently deleted.\r\n\r\nWhen `StoreFile` is set to `False`, conversion happens entirely in-memory. The raw file bytes are streamed back in the API response without touching disk or external storage, ensuring maximum security and zero persistence so that only you can access the content.\r\n",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Store file",
+                "x-ca-group": "Output",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "File": {
+                "type": "string",
+                "description": "File to be converted. Value can be URL or file content.",
+                "format": "binary",
+                "x-ca-featured": true,
+                "x-ca-label": "File",
+                "x-ca-group": "Input",
+                "x-ca-type": "File",
+                "x-ca-representation": "Default",
+                "x-ca-allowed-extensions": [
+                  "xls",
+                  "xlsx"
+                ]
+              },
+              "FileName": {
+                "type": "string",
+                "description": "The `FileName` property defines the name of the output file(s) generated by the file conversion API, ensuring safe and\r\nunique file naming. It sanitizes input filenames to remove potentially harmful characters, automatically appends the\r\ncorrect file extension based on the target format, and includes an indexing feature to distinguish multiple output files\r\nfrom a single input. For example, converting `report.docx` to PDF format might result in `report.pdf` for a single file,\r\nor `report_0.pdf`, `report_1.pdf` for multiple files, ensuring each output file is uniquely identifiable.",
+                "x-ca-featured": false,
+                "x-ca-label": "Output file name",
+                "x-ca-group": "Output",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "1",
+                  "to": "200"
+                }
+              },
+              "Password": {
+                "type": "string",
+                "description": "Sets the password to open protected documents.",
+                "x-ca-featured": false,
+                "x-ca-label": "Open Password",
+                "x-ca-group": "Excel",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default"
+              },
+              "WorksheetActive": {
+                "type": "boolean",
+                "description": "Set to convert active worksheet. If value is set False all worksheet will be converted.",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Worksheet Active",
+                "x-ca-group": "Excel",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "WorksheetIndex": {
+                "maximum": 2000,
+                "minimum": 1,
+                "type": "integer",
+                "description": "Set worksheet index(number) to convert. If value is not set all worksheet will be converted.",
+                "x-ca-featured": false,
+                "x-ca-label": "Worksheet Index",
+                "x-ca-group": "Excel",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "1",
+                  "to": "2000"
+                }
+              },
+              "WorksheetName": {
+                "type": "string",
+                "description": "Set worksheet name to convert. If value is not set all worksheet will be converted.",
+                "x-ca-featured": false,
+                "x-ca-label": "Worksheet Name",
+                "x-ca-group": "Excel",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default"
+              },
+              "ConvertMetadata": {
+                "type": "boolean",
+                "description": "Convert document metadata like Title, Author, Keywords to PDF metadata.",
+                "default": true,
+                "x-ca-featured": false,
+                "x-ca-label": "Convert metadata",
+                "x-ca-group": "Excel",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "PageOrientation": {
+                "enum": [
+                  "default",
+                  "portrait",
+                  "landscape"
+                ],
+                "type": "string",
+                "description": "Page orientation.",
+                "default": "default",
+                "x-ca-featured": false,
+                "x-ca-label": "Page orientation",
+                "x-ca-group": "Excel",
+                "x-ca-type": "Collection",
+                "x-ca-representation": "Dropdown",
+                "x-ca-values": {
+                  "default": "Default",
+                  "portrait": "Portrait",
+                  "landscape": "Landscape"
+                }
+              },
+              "PageSize": {
+                "enum": [
+                  "default",
+                  "letter",
+                  "lettersmall",
+                  "tabloid",
+                  "ledger",
+                  "legal",
+                  "statement",
+                  "executive",
+                  "a3",
+                  "a4",
+                  "a4small",
+                  "a5",
+                  "b4",
+                  "b5"
+                ],
+                "type": "string",
+                "description": "Page size.",
+                "default": "default",
+                "x-ca-featured": false,
+                "x-ca-label": "Page size",
+                "x-ca-group": "Excel",
+                "x-ca-type": "Collection",
+                "x-ca-representation": "Dropdown",
+                "x-ca-values": {
+                  "default": "Default",
+                  "letter": "Letter",
+                  "lettersmall": "Letter Small",
+                  "tabloid": "Tabloid",
+                  "ledger": "Ledger",
+                  "legal": "Legal",
+                  "statement": "Statement",
+                  "executive": "Executive",
+                  "a3": "A3",
+                  "a4": "A4",
+                  "a4small": "A4 Small",
+                  "a5": "A5",
+                  "b4": "B4",
+                  "b5": "B5"
+                }
+              },
+              "AutoColumnFit": {
+                "type": "boolean",
+                "description": "Auto fit columns to reduce unnecessary empty space in table.",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Auto Column Fit",
+                "x-ca-group": "Excel",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "AutoPageFit": {
+                "type": "boolean",
+                "description": "Automatically enlarges page size, switches to landscape when needed, trims margins, and finally scales the sheet to one-page width. If `PageSize` or `PageOrientation` are chosen, those choices are left unchanged.",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Auto Page Fit",
+                "x-ca-group": "Excel",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "ClearPrintArea": {
+                "type": "boolean",
+                "description": "Clear the print area in the converting document.",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Clear Print Area",
+                "x-ca-group": "Excel",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "Scale": {
+                "maximum": 300,
+                "minimum": 10,
+                "type": "integer",
+                "description": "Set content scale value in percentage.",
+                "x-ca-featured": false,
+                "x-ca-label": "Scale Content",
+                "x-ca-group": "Excel",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "10",
+                  "to": "300"
+                }
+              },
+              "HeaderOnEachPage": {
+                "type": "boolean",
+                "description": "Ensures the header row is repeated on all pages when the sheet's content spans multiple pages in the PDF output. If a table is detected in the sheet, its header row is used; otherwise, the first row with data is treated as the header.",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Header on Each Page",
+                "x-ca-group": "Excel",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "ThousandsSeparator": {
+                "type": "string",
+                "description": "Thousands separator.",
+                "default": ",",
+                "x-ca-featured": false,
+                "x-ca-label": "Thousands separator",
+                "x-ca-group": "Formatting Options",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default"
+              },
+              "DecimalSeparator": {
+                "type": "string",
+                "description": "Decimal separator.",
+                "default": ".",
+                "x-ca-featured": false,
+                "x-ca-label": "Decimal separator",
+                "x-ca-group": "Formatting Options",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default"
+              },
+              "DateFormat": {
+                "enum": [
+                  "us",
+                  "iso",
+                  "eu",
+                  "german",
+                  "japanese"
+                ],
+                "type": "string",
+                "description": "Sets the date format for output document, overriding the default US locale (M/d/yyyy) to ensure consistency regardless of regional Excel settings.",
+                "default": "us",
+                "x-ca-featured": false,
+                "x-ca-label": "Date Format",
+                "x-ca-group": "Formatting Options",
+                "x-ca-type": "Collection",
+                "x-ca-representation": "Dropdown",
+                "x-ca-values": {
+                  "us": "US (M/d/yyyy)",
+                  "iso": "ISO (yyyy-MM-dd)",
+                  "eu": "EU (dd/MM/yyyy)",
+                  "german": "German (dd.MM.yyyy)",
+                  "japanese": "Japanese (yyyy/MM/dd)"
+                }
+              },
+              "Pdfa": {
+                "type": "boolean",
+                "description": "Create PDF/A-1b compliant document.",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Create PDF/A",
+                "x-ca-group": "PDF Output",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "ConversionCost": {
+                  "type": "integer",
+                  "description": "This amount will be deducted from your balance after the conversion.",
+                  "format": "int32",
+                  "example": 1
+                },
+                "Files": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "FileName": {
+                        "type": "string",
+                        "description": "Name of the converted file.",
+                        "example": "myfile.pdf"
+                      },
+                      "FileExt": {
+                        "type": "string",
+                        "description": "File type (file name extension)",
+                        "example": "pdf"
+                      },
+                      "FileSize": {
+                        "type": "integer",
+                        "description": "File size",
+                        "format": "int32",
+                        "example": 111955
+                      },
+                      "FileId": {
+                        "type": "string",
+                        "description": "File ID",
+                        "example": "25811safe8e61dd3f51ef00ee5f58b92"
+                      },
+                      "Url": {
+                        "type": "string",
+                        "description": "File URL",
+                        "example": "https://v2.convertapi.com/d/v01plsb72o0cmdooq90w4d1lnqsf6oy4/myfile.pdf"
+                      },
+                      "FileData": {
+                        "type": "string",
+                        "description": "Base64 encoded file data",
+                        "format": "base64",
+                        "example": "JVBERi0xLjcKJb662+4KMSAwIG9iago8PC9UeXBlIC9DYXRhbG9n..."
+                      }
+                    }
+                  }
+                }
+              },
+              "externalDocs": {
+                "url": "https://www.convertapi.com/doc/content-types#applicationjson-1"
+              }
+            }
+          },
+          "multipart/mixed": {
+            "schema": {
+              "type": "string",
+              "format": "binary",
+              "externalDocs": {
+                "url": "https://www.convertapi.com/doc/content-types#multipartmixed"
+              }
+            },
+            "example": "--43cf1475-ab15-4c6b-b5ee-e2cbcedfe92f\nConversionCost: 1\nContent-Type: application/octet-stream\nContent-Disposition: attachment; filename=\"my_file.pdf\"; size=8475\n\n--FILE CONTENT--\n--43cf1475-ab15-4c6b-b5ee-e2cbcedfe92f--\n"
+          },
+          "application/octet-stream": {
+            "schema": {
+              "type": "string",
+              "format": "binary",
+              "externalDocs": {
+                "url": "https://www.convertapi.com/doc/content-types#applicationoctet-stream-1"
+              }
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "",
+        "content": {}
+      },
+      "401": {
+        "description": "",
+        "content": {}
+      },
+      "415": {
+        "description": "",
+        "content": {}
+      },
+      "500": {
+        "description": "",
+        "content": {}
+      },
+      "503": {
+        "description": "",
+        "content": {}
+      }
+    }
+  },
+  "POST /convert/png/to/jpg": {
+    "path": "/convert/png/to/jpg",
+    "method": "POST",
+    "summary": "",
+    "description": "",
+    "parameters": [],
+    "tags": [
+      "Conversion"
+    ],
+    "requestBody": {
+      "content": {
+        "multipart/form-data": {
+          "schema": {
+            "required": [
+              "File"
+            ],
+            "type": "object",
+            "properties": {
+              "Timeout": {
+                "maximum": 1200,
+                "minimum": 10,
+                "type": "integer",
+                "description": "Conversion timeout in seconds.",
+                "default": 900,
+                "x-ca-featured": false,
+                "x-ca-label": "Timeout",
+                "x-ca-group": "Execution",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "10",
+                  "to": "1200"
+                }
+              },
+              "StoreFile": {
+                "type": "boolean",
+                "description": "When the `StoreFile` parameter is set to `True`, your converted file is written to ConvertAPI\u2019s encrypted, temporary storage and made available via a time-limited secure download URL, valid for up to 3 hours. After this period, the file is permanently deleted.\r\n\r\nWhen `StoreFile` is set to `False`, conversion happens entirely in-memory. The raw file bytes are streamed back in the API response without touching disk or external storage, ensuring maximum security and zero persistence so that only you can access the content.\r\n",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Store file",
+                "x-ca-group": "Output",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "File": {
+                "type": "string",
+                "description": "File to be converted. Value can be URL or file content.",
+                "format": "binary",
+                "x-ca-featured": true,
+                "x-ca-label": "File",
+                "x-ca-group": "Input",
+                "x-ca-type": "File",
+                "x-ca-representation": "Default",
+                "x-ca-allowed-extensions": [
+                  "png"
+                ]
+              },
+              "FileName": {
+                "type": "string",
+                "description": "The `FileName` property defines the name of the output file(s) generated by the file conversion API, ensuring safe and\r\nunique file naming. It sanitizes input filenames to remove potentially harmful characters, automatically appends the\r\ncorrect file extension based on the target format, and includes an indexing feature to distinguish multiple output files\r\nfrom a single input. For example, converting `report.docx` to PDF format might result in `report.pdf` for a single file,\r\nor `report_0.pdf`, `report_1.pdf` for multiple files, ensuring each output file is uniquely identifiable.",
+                "x-ca-featured": false,
+                "x-ca-label": "Output file name",
+                "x-ca-group": "Output",
+                "x-ca-type": "String",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "1",
+                  "to": "200"
+                }
+              },
+              "ImageResolution": {
+                "maximum": 800,
+                "minimum": 10,
+                "type": "integer",
+                "description": "Set output image resolution in dpi.",
+                "default": 200,
+                "x-ca-featured": false,
+                "x-ca-label": "Image resolution",
+                "x-ca-group": "Image",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "10",
+                  "to": "800"
+                }
+              },
+              "ScaleImage": {
+                "type": "boolean",
+                "description": "Scale the output image. If ScaleImage is False output document will be stripped to ImageHeight / ImageWidth, if ScalePage is True output document will be scaled to ImageHeight / ImageWidth.",
+                "default": true,
+                "x-ca-featured": false,
+                "x-ca-label": "Scale image",
+                "x-ca-group": "Image",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "ScaleProportions": {
+                "type": "boolean",
+                "description": "If set to true, the barcode will be generated using recommended proportions based on the larger dimension.",
+                "default": true,
+                "x-ca-featured": false,
+                "x-ca-label": "Scale Proportions",
+                "x-ca-group": "Image",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "ScaleIfLarger": {
+                "type": "boolean",
+                "description": "Scaling only if the input image is larger than the output.",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Scale if larger",
+                "x-ca-group": "Image",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "ImageHeight": {
+                "maximum": 20000,
+                "minimum": 10,
+                "type": "integer",
+                "description": "Image height in pixels.",
+                "x-ca-featured": false,
+                "x-ca-label": "Image height",
+                "x-ca-group": "Image",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "10",
+                  "to": "20000"
+                }
+              },
+              "ImageWidth": {
+                "maximum": 20000,
+                "minimum": 10,
+                "type": "integer",
+                "description": "Image width in pixels.",
+                "x-ca-featured": false,
+                "x-ca-label": "Image width",
+                "x-ca-group": "Image",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "10",
+                  "to": "20000"
+                }
+              },
+              "ImageInterpolation": {
+                "type": "boolean",
+                "description": "Specifies whether the image parser should use image interpolation. Enabling image interpolation will result in higher quality for scaled images at the expense of speed.",
+                "default": false,
+                "x-ca-featured": false,
+                "x-ca-label": "Image interpolation",
+                "x-ca-group": "Image",
+                "x-ca-type": "Bool",
+                "x-ca-representation": "Default"
+              },
+              "AlphaColor": {
+                "type": "string",
+                "description": "Set a color on the alpha (transparent) channel. Values accepted are RGBA, CMYK hex string, or a color name.",
+                "x-ca-featured": false,
+                "x-ca-label": "Alpha channel color",
+                "x-ca-group": "Image",
+                "x-ca-type": "Color",
+                "x-ca-representation": "Default"
+              },
+              "ColorSpace": {
+                "enum": [
+                  "default",
+                  "rgb",
+                  "srgb",
+                  "cmyk",
+                  "gray"
+                ],
+                "type": "string",
+                "description": "Set image color space.",
+                "default": "default",
+                "x-ca-featured": false,
+                "x-ca-label": "Image color space",
+                "x-ca-group": "JPG Output",
+                "x-ca-type": "Collection",
+                "x-ca-representation": "Dropdown",
+                "x-ca-values": {
+                  "default": "Default",
+                  "rgb": "RGB",
+                  "srgb": "sRGB",
+                  "cmyk": "CMYK",
+                  "gray": "Gray"
+                }
+              },
+              "ImageQuality": {
+                "maximum": 100,
+                "minimum": 10,
+                "type": "integer",
+                "description": "Set output image quality.",
+                "default": 75,
+                "x-ca-featured": false,
+                "x-ca-label": "Output image quality",
+                "x-ca-group": "JPG Output",
+                "x-ca-type": "Integer",
+                "x-ca-representation": "Default",
+                "x-ca-range": {
+                  "from": "10",
+                  "to": "100"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "ConversionCost": {
+                  "type": "integer",
+                  "description": "This amount will be deducted from your balance after the conversion.",
+                  "format": "int32",
+                  "example": 1
+                },
+                "Files": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "FileName": {
+                        "type": "string",
+                        "description": "Name of the converted file.",
+                        "example": "myfile.pdf"
+                      },
+                      "FileExt": {
+                        "type": "string",
+                        "description": "File type (file name extension)",
+                        "example": "pdf"
+                      },
+                      "FileSize": {
+                        "type": "integer",
+                        "description": "File size",
+                        "format": "int32",
+                        "example": 111955
+                      },
+                      "FileId": {
+                        "type": "string",
+                        "description": "File ID",
+                        "example": "25811safe8e61dd3f51ef00ee5f58b92"
+                      },
+                      "Url": {
+                        "type": "string",
+                        "description": "File URL",
+                        "example": "https://v2.convertapi.com/d/v01plsb72o0cmdooq90w4d1lnqsf6oy4/myfile.pdf"
+                      },
+                      "FileData": {
+                        "type": "string",
+                        "description": "Base64 encoded file data",
+                        "format": "base64",
+                        "example": "JVBERi0xLjcKJb662+4KMSAwIG9iago8PC9UeXBlIC9DYXRhbG9n..."
+                      }
+                    }
+                  }
+                }
+              },
+              "externalDocs": {
+                "url": "https://www.convertapi.com/doc/content-types#applicationjson-1"
+              }
+            }
+          },
+          "multipart/mixed": {
+            "schema": {
+              "type": "string",
+              "format": "binary",
+              "externalDocs": {
+                "url": "https://www.convertapi.com/doc/content-types#multipartmixed"
+              }
+            },
+            "example": "--43cf1475-ab15-4c6b-b5ee-e2cbcedfe92f\nConversionCost: 1\nContent-Type: application/octet-stream\nContent-Disposition: attachment; filename=\"my_file.pdf\"; size=8475\n\n--FILE CONTENT--\n--43cf1475-ab15-4c6b-b5ee-e2cbcedfe92f--\n"
+          },
+          "application/octet-stream": {
+            "schema": {
+              "type": "string",
+              "format": "binary",
+              "externalDocs": {
+                "url": "https://www.convertapi.com/doc/content-types#applicationoctet-stream-1"
+              }
+            }
+          }
+        }
+      },
+      "400": {
+        "description": "",
+        "content": {}
+      },
+      "401": {
+        "description": "",
+        "content": {}
+      },
+      "415": {
+        "description": "",
+        "content": {}
+      },
+      "500": {
+        "description": "",
+        "content": {}
+      },
+      "503": {
+        "description": "",
+        "content": {}
+      }
+    }
+  },
+  "GET /d/{fileId}": {
+    "path": "/d/{fileId}",
+    "method": "GET",
+    "summary": "Download file",
+    "description": "",
+    "parameters": [
+      {
+        "$ref": "#/components/parameters/fileId"
+      },
+      {
+        "name": "download",
+        "in": "query",
+        "description": "- `attachment` - download a file\n- `inline` - view file in a web browser\n",
+        "schema": {
+          "enum": [
+            "attachment",
+            "inline"
+          ],
+          "type": "string"
+        }
+      }
+    ],
+    "tags": [
+      "File Server"
+    ],
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/octet-stream": {
+            "schema": {
+              "type": "string",
+              "format": "binary"
+            }
+          }
+        }
+      },
+      "404": {
+        "description": "File not found",
+        "content": {}
+      }
+    }
+  },
+  "DELETE /d/{fileId}": {
+    "path": "/d/{fileId}",
+    "method": "DELETE",
+    "summary": "Delete file",
+    "description": "If the file is no longer required it can be deleted. Otherwise, it will be automatically deleted after 3 hours.",
+    "parameters": [
+      {
+        "$ref": "#/components/parameters/fileId"
+      }
+    ],
+    "tags": [
+      "File Server"
+    ],
+    "responses": {
+      "200": {
+        "description": "File deleted successfuly",
+        "content": {}
+      },
+      "404": {
+        "description": "File not found",
+        "content": {}
+      }
+    }
+  },
+  "HEAD /d/{fileId}": {
+    "path": "/d/{fileId}",
+    "method": "HEAD",
+    "summary": "Get file information",
+    "description": "",
+    "parameters": [
+      {
+        "$ref": "#/components/parameters/fileId"
+      }
+    ],
+    "tags": [
+      "File Server"
+    ],
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {}
+      },
+      "404": {
+        "description": "File not found",
+        "content": {}
+      }
+    }
+  }
+}

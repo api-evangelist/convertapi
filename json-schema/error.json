@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "error",
+  "type": "object",
+  "properties": {
+    "Code": {
+      "type": "integer",
+      "description": "Error message code",
+      "format": "int32",
+      "example": 4000
+    },
+    "Message": {
+      "type": "string",
+      "description": "Error message text",
+      "example": "Parameter validation error."
+    }
+  },
+  "externalDocs": {
+    "url": "https://www.convertapi.com/doc/response-codes"
+  }
+}

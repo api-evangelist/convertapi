@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "fileId",
+  "maxLength": 32,
+  "minLength": 32,
+  "type": "string",
+  "description": "Uploaded File ID",
+  "example": "25811safe8e61dd3f51ef00ee5f58b92"
+}
