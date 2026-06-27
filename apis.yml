@@ -78,9 +78,9 @@ common:
     url: rate-limits/convertapi-rate-limits.yml
   - type: FinOps
     url: finops/convertapi-finops.yml
-  - type: Changelog
+  - type: ChangeLog
     url: https://docs.convertapi.com/changelog
-  - type: HelpDesk
+  - type: Support
     url: https://help.convertapi.com/
 maintainers:
   - FN: Kin Lane
