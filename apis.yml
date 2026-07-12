@@ -56,6 +56,12 @@ apis:
       - FN: ConvertAPI Support
         url: https://help.convertapi.com/
 common:
+  - type: TrustCenter
+    url: security/convertapi-trust-center.yml
+  - type: DomainSecurity
+    url: security/convertapi-domain-security.yml
+  - type: Authentication
+    url: authentication/convertapi-authentication.yml
   - type: Website
     url: https://www.convertapi.com/
   - type: Documentation

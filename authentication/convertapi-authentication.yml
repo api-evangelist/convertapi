@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/openapi.json
+summary:
+  types:
+  - http
+schemes:
+- name: secret
+  type: http
+  scheme: bearer
+  description: '[Get `Secret`](https://www.convertapi.com/a/secret)'
+  sources:
+  - openapi/openapi.json
