@@ -1,0 +1,454 @@
+openapi: 3.0.1
+info:
+  title: Convert Conversion User API
+  description: '# High-Performance File Conversion API
+
+    Convert Word, Excel, PowerPoint, HTML, PDF and Image formats with our powerful file conversion service.
+
+    We support more than [200 file types.]( https://www.convertapi.com/doc/file-formats)'
+  termsOfService: https://www.convertapi.com/terms
+  contact:
+    url: https://www.convertapi.com/support
+    email: support@convertapi.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: v2
+  x-ca-converter-tags:
+    pdf:
+      name: pdf
+      metaTitle: PDF REST APIs
+      metaDescription: Convert PDF documents to DOCX, PPTX, and XLSX programmatically using a fast REST API conversion service. Easily turn PDF documents into editable files.
+      pageTitle: PDF REST APIs
+      friendlyName: PDF
+      summary: The API for converting and manipulating PDF files
+      description: Convert your PDF documents to DOCX, PPTX, or XLSX files programmatically using our fast and secure REST API conversion service. With this API you can easily convert textual and scanned PDF documents to a Word, PowerPoint, Excel, or plain text file, extract tables from textual and scanned PDF documents to comma-separated values CSV files as well as MS Office spreadsheets, and generate editable Powerpoint presentations.
+      category: Format
+    pdfa:
+      name: pdfa
+      metaTitle: PDF/A REST APIs
+      metaDescription: The API for converting various types of documents like MS Word and PDF files to standardized PDF/A-1b, PDF/A-2b, and PDF/A-3b files for long-term storage.
+      pageTitle: PDF/A REST APIs
+      friendlyName: PDF/A
+      summary: Convert various documents to a standardized PDF/A format
+      description: PDF/A is a standardized format for the long-term archiving and preservation of electronic documents. It ensures content integrity and accessibility for proper rendering between different software platforms. Our service provides API tools for converting various types of documents like MS Word and PDF files to PDF/A-1b, PDF/A-2b, and PDF/A-3b files for long-term storage.
+      category: Format
+    postscript:
+      name: postscript
+      metaTitle: PostScript REST APIs
+      metaDescription: Secure and reliable PostScript conversion REST API service, providing EPS, PRN, and PS file conversions to PDF or image formats like JPEG, PNG, TIFF, or WEBP.
+      pageTitle: PostScript REST APIs
+      friendlyName: PostScript
+      summary: Reliable PostScript file conversions
+      description: Secure and reliable PostScript conversion REST API service, providing EPS, PRN, and PS file conversions to PDF or image formats like JPEG, PNG, TIFF, or WEBP. Each conversion provides a bunch of useful conversion properties. Convert your PostScript documents with any programming language at ease using our fast and scalable conversion service.
+      category: Format
+    modify:
+      name: modify
+      metaTitle: Modify PDF REST APIs
+      metaDescription: Apply document modifications to PDF documents, such as delete or rotate PDF pages, split or merge PDF documents using our fast and secure REST APIs.
+      pageTitle: Document Modification REST APIs
+      friendlyName: Modify
+      summary: Modify PDF documents using our fast and secure REST APIs
+      description: Remove unnecessary pages, adjust the orientation, or manage the document structure using our REST API. Deleting pages from a PDF is simple and precise, ideal for refining your documents and removing irrelevant content. Rotating PDF pages becomes a breeze, allowing you to correct the layout with just a few clicks. Additionally, our split and merge functionalities provide you with the flexibility to rearrange and combine PDF files accordingly.
+      category: Action
+    extract:
+      name: extract
+      metaTitle: Data extraction REST APIs
+      metaDescription: 'Advanced content extraction: Convert PDF to DOCX, XLSX, PPTX, CSV, extract images, metadata, and FDF data efficiently.'
+      pageTitle: Extract REST APIs
+      friendlyName: Extract
+      summary: Extract content and images from your documents at ease
+      description: Our services are designed to meet the diverse needs of content extraction, whether for professional or personal use. Convert your PDFs into editable DOCX, XLSX, PPTX, or CSV formats with precision, making it easier to handle and repurpose your data. Our tool extracts images maintaining the quality of the original ones. Additionally, our service facilitates the extraction of PDF metadata, and form data in FDF format, ideal for data analysis and reporting.
+      category: Action
+    ocr:
+      name: ocr
+      metaTitle: OCR REST APIs
+      metaDescription: Convert scanned documents to editable formats like DOCX, XLSX, TXT, and more. Make PDFs searchable with our advanced OCR technology.
+      pageTitle: OCR REST APIs
+      friendlyName: Ocr
+      summary: Turn Scans into Editable & Searchable Files
+      description: 'Our Optical Character Recognition technology transforms your scanned PDFs into editable and searchable formats with unparalleled accuracy. Whether you''re converting to DOCX, XLSX, or TXT, our OCR solution ensures that your documents are easily editable. Additionally, we offer the capability to add a textual layer to scanned PDFs, making them fully searchable and allowing for efficient content extraction. '
+      category: Action
+    security:
+      name: security
+      metaTitle: Document Security REST APIs
+      metaDescription: Enhance document security with password protection for DOCX, PPTX, and PDF files. Reliable encryption and decryption services.
+      pageTitle: Security REST APIs
+      friendlyName: Security
+      summary: Password Protect & Decrypt Documents Efficiently
+      description: Our services provide robust password protection for DOCX and PPTX files, ensuring that your sensitive information remains confidential and secure. In addition to protecting your documents, we also offer advanced PDF protection and decryption services. Secure your PDFs with a strong password to control viewing, printing, and editing, or use our decryption service to regain access to your protected PDFs with ease.
+      category: Action
+    autocad:
+      name: autocad
+      metaTitle: AutoCAD REST APIs
+      metaDescription: Export your DWG, DWF, DXF, DWGX, DWFX files to multiple image formats like JPG, PNG, TIFF, WEBP, or even PDF documents programmatically using REST API.
+      pageTitle: AutoCAD REST APIs
+      friendlyName: AutoCAD
+      summary: Accurate AutoCAD file conversions
+      description: Our REST API service is tailored for professionals who require quick and reliable conversion of AutoCAD files such as DWG, DWF, DXF, DWGX, and DWFX into various image formats like JPG, PNG, TIFF, WEBP, or even into PDF documents. Whether you're an architect, engineer, or designer, our tool ensures that your detailed AutoCAD drawings are accurately represented in the format of your choice.
+      category: Format
+    optimize:
+      name: optimize
+      metaTitle: Optimize REST APIs
+      metaDescription: 'Master file optimization: Image/document compression, PDF flattening, rasterization and repair for enhanced performance.'
+      pageTitle: Optimize REST APIs
+      friendlyName: Optimize
+      summary: Smart document and image optimization
+      description: A comprehensive suite of tools designed to enhance your files' efficiency and quality. Advanced image and document compression techniques to reduce file sizes without losing quality. Discover the power of PDF optimization through flattening and rasterization techniques, ensuring your documents are not only compact but also visually impeccable.
+      category: Action
+    template:
+      name: template
+      metaTitle: Document Template REST APIs
+      metaDescription: Create custom DOCX and PDF documents with our template-based solution. Inject values into placeholders for personalized output using REST API.
+      pageTitle: Template REST APIs
+      friendlyName: Template
+      summary: Customize DOCX/PDF Templates Easily
+      description: Our service is tailored for users who need to generate documents based on specific templates. Whether you’re preparing business reports, official letters, or any other type of document, our tool allows for the easy injection of custom values into pre-defined placeholders. This feature is particularly useful for businesses and individuals who require consistent document layouts with varying content.
+      category: Action
+    compare:
+      name: compare
+      metaTitle: Compare REST APIs
+      metaDescription: Effortlessly compare documents for changes using our fast and secure REST API service. Ideal for editing, collaboration, and document management.
+      pageTitle: Compare REST APIs
+      friendlyName: Compare
+      summary: Quick & Accurate File Comparisons
+      description: Our document compare tools are designed for anyone who needs to track changes and differences in text documents efficiently. It accurately highlights changes between different versions of a DOCX file, allowing you to easily see additions, deletions, and modifications. This feature is indispensable for ensuring consistency and accuracy in document editing and version control.
+      category: Action
+    archive:
+      name: archive
+      metaTitle: Archive REST APIs
+      metaDescription: Archive more than 100+ file formats to ZIP, encrypt with a password, and choose from different compression levels programmatically using REST API.
+      pageTitle: Archive REST APIs
+      friendlyName: Archive
+      summary: Fast and secure archive automation
+      description: Our archive converters are designed to handle over 100 different file formats, making it a versatile tool for a wide range of archiving needs. Archive your files securely with options for password encryption, ensuring that your data remains safe during transfer and storage. It allows for varying levels of compression as per your needs. Extracting files from ZIP archives is just as efficient and user-friendly!
+      category: Action
+    office:
+      name: office
+      metaTitle: Microsoft Office REST APIs
+      metaDescription: Convert your MS Office documents with any programming language at ease using our fast and secure conversion service. A complete MS Office REST API.
+      pageTitle: Microsoft Office REST APIs
+      friendlyName: Office
+      summary: Seamless Microsoft Office conversions
+      description: A complete MS Office suite conversion REST API service. Easily convert to and from DOCX, XLSX, PPTX, RTF, TXT, CSV, PDF, and much more. Each conversion provides a bunch of useful conversion properties. Convert your MS Office documents with any programming language at ease using our fast and secure conversion service.
+      category: Format
+    openoffice:
+      name: openoffice
+      metaTitle: OpenOffice REST APIs
+      metaDescription: A complete OpenOffice suite conversion REST API service. Easily convert to and from ODT, OTT, OTH, ODM, SXW, RTF, TXT, CSV, PDF, and much more.
+      pageTitle: OpenOffice REST APIs
+      friendlyName: OpenOffice
+      summary: Flexible OpenOffice format conversions
+      description: A complete OpenOffice suite conversion REST API service. Easily convert to and from ODT, OTT, OTH, ODM, SXW, RTF, TXT, CSV, PDF, and much more. Each conversion provides a bunch of useful conversion properties. Convert your OpenOffice documents with any programming language at ease using our fast and secure conversion service.
+      category: Format
+    markdown:
+      name: markdown
+      metaTitle: Markdown REST APIs
+      metaDescription: Efficiently convert HTM/HTML files to Markdown (MD) format, perfect for web developers and content creators.
+      pageTitle: Markdown REST APIs
+      friendlyName: Markdown
+      summary: Markdown to document conversions
+      description: Markdown REST APIs provide tools for converting HTM and HTML files to Markdown (MD) format. Our converters ensure that your HTML structures are accurately transformed into clean, concise Markdown syntax. Whether you're looking to streamline content management, simplify website updates, or convert web pages to a format that's easier to edit and version control, our HTML to Markdown conversion tools are here to help.
+      category: Format
+    ebook:
+      name: ebook
+      metaTitle: eBooks REST APIs
+      metaDescription: Convert your eBooks to a PDF document or image like PNG, JPG, TIFF, or WEBP programmatically using our fast and secure REST API with any programming language.
+      pageTitle: eBooks REST APIs
+      friendlyName: eBooks
+      summary: eBook format conversion APIs
+      description: Convert your eBooks to a PDF document or image like PNG, JPG, TIFF, or WEBP programmatically using our fast and secure REST API with any programming language you choose. You can choose from a bunch conversion parameters when converting an eBook. Your eBook can be further compressed, encrypted or merged after you convert it to a PDF document.
+      category: Format
+    html:
+      name: html
+      metaTitle: Web & HTML REST APIs
+      metaDescription: Convert webpages, HTM, HTML, and MHML files to multiple destination formats like a PDF, PNG, JPEG, etc. using our fast and reliable REST API conversion service.
+      pageTitle: Web & HTML REST APIs
+      friendlyName: Web & HTML
+      summary: HTML and web content conversions
+      description: Convert webpages, HTM, HTML, and MHML files to multiple destination formats using our fast and reliable REST API conversion service. Converters allow multiple advanced options like converting websites that are secured with basic authentication, lets you inject your custom JS or CSS, hide adds, cookie consent dialogs and more.
+      category: Format
+    spreadsheet:
+      name: spreadsheet
+      metaTitle: Spreadsheet REST APIs
+      metaDescription: Efficiently convert between MS Office Excel and iWork Numbers formats. Seamless spreadsheet conversion for accurate data management.
+      pageTitle: Spreadsheet REST APIs
+      friendlyName: Spreadsheet
+      summary: Spreadsheet format conversion APIs
+      description: 'Our comprehensive tools cover a wide range of conversions, including from and to MS Office Excel and iWork Numbers formats. We also specialize in converting PDF files to XLSX, ensuring your data is editable and manageable. Need to present your Excel data in a universally accessible format? Convert your XLSX files to PDF with ease. Our services also extend to converting CSV files to XLSX and vice versa, perfect for handling large data sets. '
+      category: Format
+    publishing:
+      name: publishing
+      metaTitle: Publishing REST APIs
+      metaDescription: Convert PUB, XPS, OXPS files to PDF, PNG, and more. Optimal solutions for all your publishing file conversion needs.
+      pageTitle: Publishing REST APIs
+      friendlyName: Publishing
+      summary: Professional publishing file conversions
+      description: Our service caters to users of Microsoft Office Publisher, offering efficient and high-quality conversions of PUB files to popular formats such as JPG, PNG, TIFF, and PDF. In addition to that, we offer advanced conversion services for XPS and OXPS files conversion to PDF and PNG. Our conversion process retains the layout, design, and color integrity of your original files, ensuring that the essence of your work is preserved.
+      category: Format
+    document:
+      name: document
+      metaTitle: Document REST APIs
+      metaDescription: Effortlessly convert to and from various document formats. Reliable, fast, and accurate document conversion for all your Word needs.
+      pageTitle: Document REST APIs
+      friendlyName: Document
+      summary: Seamless Various Document Conversions
+      description: Whether you're converting from textual documents to PDF, image, HTML, or vice-versa, our service guarantees fast, accurate, and reliable results. This is ideal for professionals who require quick turnarounds and high-quality document handling. In addition to basic format conversions, our tools also support advanced features to maintain formatting, styles, and layouts, ensuring that your documents look professional and remain consistent across conversions.
+      category: Format
+    presentation:
+      name: presentation
+      metaTitle: Presentation REST APIs
+      metaDescription: Transform presentations effortlessly with our REST APIs conversion tools. Convert PDF to PPTX, KEY to PPTX, and more with ease.
+      pageTitle: Presentation REST APIs
+      friendlyName: Presentation
+      summary: Accurate Presentation Conversions at Scale
+      description: Specializing in a variety of PowerPoint conversions, our tools make it easy to transform your presentations. Key features include converting PDF files to PPTX format and converting KEY (Apple Keynote) files to PPTX, ensuring compatibility and ease of use across different platforms. Our advanced technology maintains the integrity of your original layout, graphics, and animations, making the conversion process smooth and reliable.
+      category: Format
+    email:
+      name: email
+      metaTitle: Email REST APIs
+      metaDescription: Secure and reliable email conversion REST API service, providing EML, MBX, MSG, and OFT file conversions to PDF, PDFA, or image with multiple parameters.
+      pageTitle: Email REST APIs
+      friendlyName: Email
+      summary: Convert & Extract Emails at Scale
+      description: Secure and reliable email conversion REST API service, providing EML, MBX, MSG, and OFT file conversions to PDF, PDFA, or image. You can choose whether to convert email attachments or not. You can also choose if you want to include the email's metadata like from, to, subject, and date into the selected destination format.
+      category: Format
+    image:
+      name: image
+      metaTitle: Image REST APIs
+      metaDescription: A powerful image converter SDK for all programming languages. Convert BMP, FAX, GIF, HEIC, ICO, JPEG, MDI, PNG, TIFF, or WEBP files to PDF or image.
+      pageTitle: Image REST APIs
+      friendlyName: Image
+      summary: High-Quality Image Conversions
+      description: We support a wide range of image formats, including BMP, FAX, GIF, HEIC, ICO, JPEG, MDI, PNG, TIFF, and WEBP. Whether you need to convert these images to PDF for document inclusion or to other popular image formats for various uses, our tools are equipped to handle your requirements with precision. Additionally, our service offers the functionality to apply watermarks to your images, ensuring your content protection and personalization.
+      category: Format
+    watermark:
+      name: watermark
+      metaTitle: 'Watermark PDF API: Image, Text & PDF Overlay Stamps'
+      metaDescription: Integrate REST watermark APIs to stamp PDFs with image, text, or PDF overlay marks. Control font, color, position, opacity, rotation, and page ranges.
+      pageTitle: PDF Watermark APIs
+      friendlyName: Watermark
+      summary: Stamp image, text, or PDF overlay watermarks on PDFs via REST API
+      description: Integrate watermark functionality into your applications via REST endpoints for stamping PDF documents. Apply image watermarks from PNG, JPG, or TIFF files. Add text watermarks with control over font, size, color, stroke, opacity, and rotation. Overlay another PDF page as a vector watermark across selected pages. Every request accepts precise placement parameters including coordinates, scale, page ranges, opacity, and clickable links. Use these endpoints to brand contracts, mark drafts as confidential, apply copyright notices, or automate batch document labeling inside your pipeline.
+      category: Action
+    drawing:
+      name: drawing
+      metaTitle: Drawing REST APIs
+      metaDescription: Effortlessly convert Microsoft Visio diagrams to PDF, JPEG, PNG, and TIFF. Preserve quality with our advanced conversion tools.
+      pageTitle: Drawing REST APIs
+      friendlyName: Drawing
+      summary: Technical Drawing File Conversions
+      description: Converting drawings to various formats is streamlined and efficient. Our services are specifically tailored for professionals who utilize Visio for detailed diagrams and need versatile output options. Whether you need to convert your Visio diagrams to PDF for documentation purposes, JPEG or PNG for high-quality image formats, or TIFF for archiving and printing, our tools ensure that your diagrams maintain their integrity and quality.
+      category: Format
+    forms:
+      name: forms
+      metaTitle: Extract, Import PDF form data
+      metaDescription: Streamline PDF forms and FDF file handling with our conversion tools. Extract and import form data effortlessly for efficient data management.
+      pageTitle: PDF Form REST APIs
+      friendlyName: Form
+      summary: Efficient PDF & FDF Form Data Handling Tools
+      description: 'Simplify your workflow by enabling efficient extraction and import of form data. Whether you''re dealing with complex PDF forms or need to handle FDF files, our platform offers seamless, user-friendly solutions. Perfect for businesses and individuals who regularly work with form data, our tools ensure accuracy and save time. Enjoy the ease of extracting data from forms for analysis, or importing data into forms for quick completion. '
+      category: Action
+    ai:
+      name: ai
+      metaTitle: AI-Powered REST APIs
+      metaDescription: Leverage AI to automate content detection and transformation across file formats with our secure, efficient, and intelligent REST API solutions.
+      pageTitle: AI-Powered REST APIs
+      friendlyName: AI Tools
+      summary: AI-powered detection and transformation
+      description: Our AI-powered REST API automatically detects and transforms content across different file formats with advanced algorithms. From text redaction to document structuring, our intelligent solution simplifies complex tasks, ensuring efficiency and security without manual intervention. Streamline your document workflows and rely on AI for smarter, faster, and more accurate content processing.
+      category: Action
+    barcode:
+      name: barcode
+      metaTitle: Barcode & QR Code REST APIs
+      metaDescription: Generate, detect, and decode high-quality barcodes and QR codes from data or documents with our REST API. Supports Code 128, QR Code, EAN-13, and more.
+      pageTitle: Barcode & QR Code REST APIs
+      friendlyName: Barcode
+      summary: High-Quality Barcode and QR Code Solutions
+      description: Generate high-quality barcode and QR code images from data, or detect and decode them from documents and images using our REST API. We support a wide range of industry-standard formats, including Code 128, Code 39, EAN-13, QR Code, and Data Matrix. You can fully customize the generation process or use advanced detection algorithms to extract data from various file formats accurately.
+      category: Action
+servers:
+- url: https://v2.convertapi.com
+- url: https://eu-v2.convertapi.com
+- url: https://uk-v2.convertapi.com
+- url: https://us-v2.convertapi.com
+- url: https://ca-v2.convertapi.com
+- url: https://as-v2.convertapi.com
+- url: https://au-v2.convertapi.com
+tags:
+- name: User
+  description: API User
+  externalDocs:
+    description: API User related operations
+    url: https://www.convertapi.com/doc/user
+paths:
+  /user:
+    get:
+      tags:
+      - User
+      summary: User information
+      description: 'The endpoint returns information about a user account. It is helpful to check the account balance status and other data. The endpoint can be authenticated only with a secret, the token is not accepted.
+
+        '
+      externalDocs:
+        url: https://www.convertapi.com/doc/user
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Active:
+                    type: boolean
+                    description: User can perform conversions
+                  Email:
+                    type: string
+                    description: User email
+                    example: user@example.com
+                  Secret:
+                    type: string
+                    description: Authentication secret
+                    example: 1XKrszdaFZH33WTh
+                  ApiKey:
+                    type: integer
+                    description: Authentication API key
+                    format: int64
+                    example: 842679918
+                  ConversionsTotal:
+                    type: integer
+                    description: Plan conversion count
+                    format: int64
+                    example: 5000
+                  ConversionsConsumed:
+                    type: integer
+                    description: Conversions consumed
+                    format: int64
+                    example: 458
+                  SecondsLeft:
+                    type: integer
+                    format: int64
+                    deprecated: true
+                  FullName:
+                    type: string
+                    description: User full name
+                    example: John Wick
+        '401':
+          $ref: '#/components/responses/401'
+      security:
+      - secret: []
+  /user/statistic:
+    get:
+      tags:
+      - User
+      summary: Statistics
+      description: The endpoint that returns information about your usage statistics based on the date range.
+      externalDocs:
+        url: https://www.convertapi.com/doc/user
+      parameters:
+      - name: startDate
+        in: query
+        description: Conversions from date
+        required: true
+        schema:
+          type: string
+        example: '2023-09-01'
+      - name: endDate
+        in: query
+        description: Conversions to date
+        required: true
+        schema:
+          type: string
+        example: '2023-09-30'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Result:
+                      type: boolean
+                      description: Is conversion successful
+                    CreatedAt:
+                      type: string
+                      description: Conversion time
+                    ExecutionTime:
+                      type: integer
+                      description: Conversion duration
+                      format: int32
+                    Converter:
+                      type: string
+                      description: File converter name
+                    SourceFormat:
+                      type: string
+                      description: Source file format (docx, pdf, jpg etc.)
+                    DestinationFormat:
+                      type: string
+                      description: Destination file format (docx, pdf, jpg etc.)
+                    Ip:
+                      type: string
+                      description: File conversion request origin IP
+                    Source:
+                      type: string
+                      description: Source file name
+                    Error:
+                      type: string
+                      description: Conversion error message
+            text/csv:
+              schema:
+                type: string
+        '400':
+          $ref: '#/components/responses/400'
+      security:
+      - secret: []
+components:
+  responses:
+    '400':
+      description: Malformed request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error'
+    '401':
+      description: Authentication error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error'
+  schemas:
+    error:
+      type: object
+      properties:
+        Code:
+          type: integer
+          description: Error message code
+          format: int32
+          example: 4000
+        Message:
+          type: string
+          description: Error message text
+          example: Parameter validation error.
+      externalDocs:
+        url: https://www.convertapi.com/doc/response-codes
+  securitySchemes:
+    secret:
+      type: http
+      description: '[Get `Secret`](https://www.convertapi.com/a/secret)'
+      scheme: bearer
+    token:
+      type: http
+      description: '[Get `Token`](https://www.convertapi.com/a/api-tokens)'
+      scheme: bearer
+    jwt:
+      type: http
+      description: '[Get `JWT`](https://www.convertapi.com/a/jwt-tokens)'
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: Find out more about ConvertAPI
+  url: https://www.convertapi.com/doc
