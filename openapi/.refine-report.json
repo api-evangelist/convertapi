@@ -1,0 +1,18 @@
+{
+  "provider": "convertapi",
+  "sources": [
+    "convertapi-conversion-api-openapi.yml",
+    "convertapi-file-server-api-openapi.yml",
+    "convertapi-user-api-openapi.yml"
+  ],
+  "outputs": [
+    "convertapi-conversion-api-openapi.yml",
+    "convertapi-file-server-api-openapi.yml",
+    "convertapi-user-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
