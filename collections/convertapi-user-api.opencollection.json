@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Convert Conversion User API",
+    "version": "v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "User",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "User information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://v2.convertapi.com/user",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "The endpoint returns information about a user account. It is helpful to check the account balance status and other data. The endpoint can be authenticated only with a secret, the token is not accepted.\n"
+        },
+        {
+          "info": {
+            "name": "Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://v2.convertapi.com/user/statistic",
+            "params": [
+              {
+                "name": "startDate",
+                "value": "2023-09-01",
+                "type": "query",
+                "description": "Conversions from date"
+              },
+              {
+                "name": "endDate",
+                "value": "2023-09-30",
+                "type": "query",
+                "description": "Conversions to date"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "The endpoint that returns information about your usage statistics based on the date range."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,140 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Convert Conversion File Server API",
+    "version": "v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "File Server",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Upload file",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://v2.convertapi.com/upload",
+            "headers": [
+              {
+                "name": "content-disposition",
+                "value": "Content-Disposition: inline; filename=\"myfile.pdf\""
+              }
+            ],
+            "params": [
+              {
+                "name": "filename",
+                "value": "myfile.pdf",
+                "type": "query",
+                "description": "File name.\nRequired if the header field `content-disposition` is not set.\n"
+              },
+              {
+                "name": "fileId",
+                "value": "25811safe8e61dd3f51ef00ee5f58b92",
+                "type": "query",
+                "description": "Custom ID for the file that is uploaded. Lowercase alphanumeric character string."
+              },
+              {
+                "name": "url",
+                "value": "https://example.com/myfile.pdf",
+                "type": "query",
+                "description": "Remote file URL. The URL of the file you want to upload and store on the ConvertAPI file server.\nIf the file is accessible by the URL, it can be uploaded directly from its location by passing the URL instead of the file itself.\n"
+              },
+              {
+                "name": "headername",
+                "value": "header-field-name",
+                "type": "query",
+                "description": "Remote file request header field name (used exclusively in conjunction with the `url` parameter)."
+              },
+              {
+                "name": "headervalue",
+                "value": "Header field value",
+                "type": "query",
+                "description": "Remote file request header field value (used exclusively in conjunction with the `url` and `headername` parameters)."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "When source files require multiple conversions, optimizing performance is possible by uploading the file once and then performing multiple conversions without the need for re-uploading.\nThe uploaded file is securely stored on the convertapi.com server for a maximum period of 3 hours and can be accessed through a unique secret URL with a UUID.\nIn conversion requests, the file can be referenced using the File ID, which is generated upon successful file upload.\n"
+        },
+        {
+          "info": {
+            "name": "Download file",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://v2.convertapi.com/d/:fileId",
+            "params": [
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "File ID"
+              },
+              {
+                "name": "download",
+                "value": "",
+                "type": "query",
+                "description": "- `attachment` - download a file\n- `inline` - view file in a web browser\n"
+              }
+            ]
+          },
+          "docs": "Download file"
+        },
+        {
+          "info": {
+            "name": "Delete file",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://v2.convertapi.com/d/:fileId",
+            "params": [
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "File ID"
+              }
+            ]
+          },
+          "docs": "If the file is no longer required it can be deleted. Otherwise, it will be automatically deleted after 3 hours."
+        },
+        {
+          "info": {
+            "name": "Get file information",
+            "type": "http"
+          },
+          "http": {
+            "method": "HEAD",
+            "url": "https://v2.convertapi.com/d/:fileId",
+            "params": [
+              {
+                "name": "fileId",
+                "value": "",
+                "type": "path",
+                "description": "File ID"
+              }
+            ]
+          },
+          "docs": "Get file information"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

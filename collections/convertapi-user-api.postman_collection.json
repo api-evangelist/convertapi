@@ -1,0 +1,324 @@
+{
+  "item": [
+    {
+      "id": "7d313fbc-4407-4cf9-b305-1ad300f2779a",
+      "name": "User",
+      "description": {
+        "content": "API User",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "21de1b70-b1b0-4c98-8850-c25f49fe0584",
+          "name": "User information",
+          "request": {
+            "name": "User information",
+            "description": {
+              "content": "The endpoint returns information about a user account. It is helpful to check the account balance status and other data. The endpoint can be authenticated only with a secret, the token is not accepted.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f756d6a2-c0dc-4683-a6b8-437bb02dc169",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Active\": true,\n  \"Email\": \"user@example.com\",\n  \"Secret\": \"1XKrszdaFZH33WTh\",\n  \"ApiKey\": 842679918,\n  \"ConversionsTotal\": 5000,\n  \"ConversionsConsumed\": 458,\n  \"SecondsLeft\": 2215,\n  \"FullName\": \"John Wick\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d324b118-e6fc-46e4-91ea-2d349539beab",
+              "name": "Authentication error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Code\": 4000,\n  \"Message\": \"Parameter validation error.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "38cf2eaf-77ec-4a77-a518-509e5f66f773",
+          "name": "Statistics",
+          "request": {
+            "name": "Statistics",
+            "description": {
+              "content": "The endpoint that returns information about your usage statistics based on the date range.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "user",
+                "statistic"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "startDate",
+                  "value": "<string>",
+                  "description": "(Required) Conversions from date"
+                },
+                {
+                  "disabled": false,
+                  "key": "endDate",
+                  "value": "<string>",
+                  "description": "(Required) Conversions to date"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f74164ea-b58a-425f-a056-08bdc511bfe6",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "statistic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "2023-09-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-09-30"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"Result\": true,\n    \"CreatedAt\": \"string\",\n    \"ExecutionTime\": 9327,\n    \"Converter\": \"string\",\n    \"SourceFormat\": \"string\",\n    \"DestinationFormat\": \"string\",\n    \"Ip\": \"string\",\n    \"Source\": \"string\",\n    \"Error\": \"string\"\n  },\n  {\n    \"Result\": true,\n    \"CreatedAt\": \"string\",\n    \"ExecutionTime\": 1433,\n    \"Converter\": \"string\",\n    \"SourceFormat\": \"string\",\n    \"DestinationFormat\": \"string\",\n    \"Ip\": \"string\",\n    \"Source\": \"string\",\n    \"Error\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3ce6305f-cf7c-4a91-9f37-7cc524c8ed03",
+              "name": "Malformed request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "user",
+                    "statistic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "startDate",
+                      "value": "2023-09-01"
+                    },
+                    {
+                      "key": "endDate",
+                      "value": "2023-09-30"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Code\": 4000,\n  \"Message\": \"Parameter validation error.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://v2.convertapi.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e572c10c-2a3c-4586-8cc4-937f7fb22342",
+    "name": "Convert Conversion User API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "# High-Performance File Conversion API\nConvert Word, Excel, PowerPoint, HTML, PDF and Image formats with our powerful file conversion service.\nWe support more than [200 file types.]( https://www.convertapi.com/doc/file-formats)\n\nContact Support:\n Email: support@convertapi.com",
+      "type": "text/plain"
+    }
+  }
+}
