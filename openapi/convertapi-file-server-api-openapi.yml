@@ -1,11 +1,11 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Convert Conversion File Server API
+  title: Convert File Server API
   description: '# High-Performance File Conversion API
 
     Convert Word, Excel, PowerPoint, HTML, PDF and Image formats with our powerful file conversion service.
 
-    We support more than [200 file types.]( https://www.convertapi.com/doc/file-formats)'
+    We support more than 200 file types.'
   termsOfService: https://www.convertapi.com/terms
   contact:
     url: https://www.convertapi.com/support
@@ -291,9 +291,7 @@ paths:
 
         The uploaded file is securely stored on the convertapi.com server for a maximum period of 3 hours and can be accessed through a unique secret URL with a UUID.
 
-        In conversion requests, the file can be referenced using the File ID, which is generated upon successful file upload.
-
-        '
+        In conversion requests, the file can be referenced using the File ID, which is generated upon successful file upload.'
       externalDocs:
         url: https://www.convertapi.com/doc/upload
       parameters:
@@ -399,6 +397,8 @@ paths:
           description: The file type is not supported
         '500':
           description: Unable to store or download remote file
+      operationId: postUpload
+      x-operation-id-source: derived
   /d/{fileId}:
     get:
       tags:
@@ -450,6 +450,8 @@ paths:
           description: File deleted successfuly
         '404':
           description: File not found
+      operationId: deleteDByFileId
+      x-operation-id-source: derived
     head:
       tags:
       - File Server
@@ -470,12 +472,10 @@ paths:
               $ref: '#/components/headers/file-size'
         '404':
           description: File not found
+      operationId: headDByFileId
+      x-operation-id-source: derived
 components:
   headers:
-    file-ext:
-      description: File name extension
-      schema:
-        type: string
     file-name:
       description: File name
       schema:
@@ -486,6 +486,10 @@ components:
         type: integer
     content-disposition:
       description: File information ([docummentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition))
+      schema:
+        type: string
+    file-ext:
+      description: File name extension
       schema:
         type: string
   parameters:

@@ -1,11 +1,11 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Convert Conversion User API
+  title: Convert User API
   description: '# High-Performance File Conversion API
 
     Convert Word, Excel, PowerPoint, HTML, PDF and Image formats with our powerful file conversion service.
 
-    We support more than [200 file types.]( https://www.convertapi.com/doc/file-formats)'
+    We support more than 200 file types.'
   termsOfService: https://www.convertapi.com/terms
   contact:
     url: https://www.convertapi.com/support
@@ -287,9 +287,7 @@ paths:
       tags:
       - User
       summary: User information
-      description: 'The endpoint returns information about a user account. It is helpful to check the account balance status and other data. The endpoint can be authenticated only with a secret, the token is not accepted.
-
-        '
+      description: The endpoint returns information about a user account. It is helpful to check the account balance status and other data. The endpoint can be authenticated only with a secret, the token is not accepted.
       externalDocs:
         url: https://www.convertapi.com/doc/user
       responses:
@@ -338,6 +336,8 @@ paths:
           $ref: '#/components/responses/401'
       security:
       - secret: []
+      operationId: getUser
+      x-operation-id-source: derived
   /user/statistic:
     get:
       tags:
@@ -406,16 +406,18 @@ paths:
           $ref: '#/components/responses/400'
       security:
       - secret: []
+      operationId: getUserStatistic
+      x-operation-id-source: derived
 components:
   responses:
-    '400':
-      description: Malformed request
+    '401':
+      description: Authentication error
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/error'
-    '401':
-      description: Authentication error
+    '400':
+      description: Malformed request
       content:
         application/json:
           schema:
