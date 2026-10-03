@@ -85157,12 +85157,6 @@ paths:
       x-operation-id-source: derived
 components:
   responses:
-    '503':
-      description: Conversion rate limit error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/error'
     '400':
       description: Malformed request
       content:
@@ -85171,6 +85165,12 @@ components:
             $ref: '#/components/schemas/error'
     '401':
       description: Authentication error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error'
+    '503':
+      description: Conversion rate limit error
       content:
         application/json:
           schema:

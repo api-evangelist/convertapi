@@ -409,19 +409,6 @@ paths:
       operationId: getUserStatistic
       x-operation-id-source: derived
 components:
-  responses:
-    '401':
-      description: Authentication error
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/error'
-    '400':
-      description: Malformed request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/error'
   schemas:
     error:
       type: object
@@ -437,6 +424,19 @@ components:
           example: Parameter validation error.
       externalDocs:
         url: https://www.convertapi.com/doc/response-codes
+  responses:
+    '400':
+      description: Malformed request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error'
+    '401':
+      description: Authentication error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/error'
   securitySchemes:
     secret:
       type: http
