@@ -85163,14 +85163,14 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/error'
-    '401':
-      description: Authentication error
+    '503':
+      description: Conversion rate limit error
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/error'
-    '503':
-      description: Conversion rate limit error
+    '415':
+      description: File type error
       content:
         application/json:
           schema:
@@ -85181,8 +85181,8 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/error'
-    '415':
-      description: File type error
+    '401':
+      description: Authentication error
       content:
         application/json:
           schema:

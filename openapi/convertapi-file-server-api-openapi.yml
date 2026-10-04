@@ -475,30 +475,23 @@ paths:
       operationId: headDByFileId
       x-operation-id-source: derived
 components:
-  schemas:
-    fileId:
-      maxLength: 32
-      minLength: 32
-      type: string
-      description: Uploaded File ID
-      example: 25811safe8e61dd3f51ef00ee5f58b92
   headers:
     file-ext:
       description: File name extension
-      schema:
-        type: string
-    file-size:
-      description: File size
-      schema:
-        type: integer
-    content-disposition:
-      description: File information ([docummentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition))
       schema:
         type: string
     file-name:
       description: File name
       schema:
         type: string
+    content-disposition:
+      description: File information ([docummentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition))
+      schema:
+        type: string
+    file-size:
+      description: File size
+      schema:
+        type: integer
   parameters:
     fileId:
       name: fileId
@@ -507,6 +500,13 @@ components:
       required: true
       schema:
         $ref: '#/components/schemas/fileId'
+  schemas:
+    fileId:
+      maxLength: 32
+      minLength: 32
+      type: string
+      description: Uploaded File ID
+      example: 25811safe8e61dd3f51ef00ee5f58b92
   securitySchemes:
     secret:
       type: http

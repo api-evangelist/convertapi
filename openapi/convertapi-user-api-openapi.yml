@@ -425,14 +425,14 @@ components:
       externalDocs:
         url: https://www.convertapi.com/doc/response-codes
   responses:
-    '400':
-      description: Malformed request
+    '401':
+      description: Authentication error
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/error'
-    '401':
-      description: Authentication error
+    '400':
+      description: Malformed request
       content:
         application/json:
           schema:
