@@ -1,3 +1,7 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
 name: ConvertAPI Plans and Pricing
 description: Subscription-based pricing plans for ConvertAPI file conversion services with usage-based billing. All plans include access to 200+ file format conversions, API access, dashboard analytics, and integrations with Zapier, n8n, and AWS Lambda. Overages are charged beyond plan conversion limits.
 url: https://www.convertapi.com/pricing
@@ -73,3 +77,46 @@ plans:
       - Priority support
       - Custom integrations
       - Overage charges apply beyond quota
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - subscription
+  units: []
+  plans:
+  - name: Free Trial
+    access: other
+    model: free
+    model_how: derived
+    units:
+    - other
+    periods: []
+  - name: Developer
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods: []
+  - name: Startup
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods: []
+  - name: Growth
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods: []
+  - name: Business
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods: []

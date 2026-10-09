@@ -1,3 +1,7 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
 name: ConvertAPI Rate Limits
 description: ConvertAPI enforces rate limits based on subscription tier and server resource availability. Business and Enterprise customers have no hard concurrent request limits. All other tiers are subject to throttling during periods of high server utilization, returning HTTP 503. The recommended retry strategy uses progressive back-off with three attempts at 5, 10, and 15 second intervals. Conversion quota exhaustion returns HTTP 403.
 url: https://docs.convertapi.com/docs/throttle-and-fallback

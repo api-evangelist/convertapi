@@ -1,3 +1,11 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+# Coverage demoted 2026-10-07 (roadmap#942, PLAN.md Stage A): this file was written by an API Evangelist
+# sweep and names no billing unit, meters or pricing category read from the provider — it restates the
+# FinOps framework. It is `x-coverage: unmeasured`, and the FOCUS alignment it claimed has been removed.
+x-coverage: unmeasured
+method: generated
 name: ConvertAPI FinOps
 description: Financial operations guidance for managing ConvertAPI costs. Billing is usage-based within monthly subscription tiers. Overage charges accrue automatically when conversion quotas are exceeded without plan suspension. Monitor consumption via the /user endpoint or the account statistics dashboard to avoid unexpected charges. Use multiple API Tokens to separate production and development usage and apply per-token consumption limits.
 url: https://www.convertapi.com/pricing
