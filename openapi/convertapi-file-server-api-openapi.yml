@@ -480,18 +480,18 @@ components:
       description: File name extension
       schema:
         type: string
-    file-name:
-      description: File name
-      schema:
-        type: string
-    content-disposition:
-      description: File information ([docummentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition))
-      schema:
-        type: string
     file-size:
       description: File size
       schema:
         type: integer
+    content-disposition:
+      description: File information ([docummentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Disposition))
+      schema:
+        type: string
+    file-name:
+      description: File name
+      schema:
+        type: string
   parameters:
     fileId:
       name: fileId
