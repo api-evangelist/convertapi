@@ -66,3 +66,16 @@
     builder: Pipedream repo (component)
   status: not-a-workflow
   arazzo: null
+- slug: convertapi-bubble-own
+  label: Bubble (own)
+  partner: bubble
+  partner_name: Bubble (own)
+  category: Action
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://bubble.io/plugin/convertapi-1690977977458x650984287975768000
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
