@@ -144,6 +144,8 @@ apis:
   - type: SDKLibraries
     url: https://www.convertapi.com/integration/libraries
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/convertapi/overview
   - type: AgenticAccess
     url: agentic-access/convertapi-agentic-access.yml
   - type: TrustCenter
